@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.ArrayList;
 public class BasicJavaTest {
     //Write a method that prints all the numbers from 1 to 255.
@@ -38,5 +39,6 @@ public class BasicJavaTest {
         result.MaxMinAv(myArray3);
         
         //Given any array x, say [1, 5, 10, 7, -2], write a method that shifts each number by one to the front. For example, when the method is done, an x of [1, 5, 10, 7, -2] should become [5, 10, 7, -2, 0]. Notice that the last number is 0. The method does not need to wrap around the values shifted out of bounds.
+        System.out.println(Arrays.toString(result.GetShift(myArray3)));
     }
 }
