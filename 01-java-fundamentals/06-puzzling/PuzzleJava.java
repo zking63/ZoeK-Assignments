@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+//import java.util.concurrent.ThreadLocalRandom;
 public class PuzzleJava{
     //Create an array with the following values: 3,5,1,2,7,9,8,13,25,32. Print the sum of all numbers in the array. Also have the function return an array that only includes numbers that are greater than 10 (e.g. when you pass the array above, it should return an array with the values of 13,25,32)
     public ArrayList<Integer> PrintSumR(){
@@ -50,6 +51,26 @@ public class PuzzleJava{
     }
 
     //Generate and return an array with 10 random numbers between 55-100.
+    public ArrayList<Integer> RandomTen(){
+        ArrayList<Integer> myList = new ArrayList<Integer>();
+        for (int i = 0; i <100; i++){
+            //multiple ways to do this
+            //one way: int num = ThreadLocalRandom.current().nextInt(55, 101);
+            
+            /* another way:
+            Random rand = new Random();
+            int upperbound = 101;
+            int num = rand.nextInt(upperbound); 
+            myList.add(num);*/
+
+            //another way: 
+            int max = 101;
+            int min = 55;
+            int num = (int) (Math.random() * (max - min +1) +min);
+            myList.add(num);
+        }
+        return myList;
+    }
 
     //Generate and return an array with 10 random numbers between 55-100 and have it be sorted (showing the smallest number in the beginning). Display all the numbers in the array. Next, display the minimum value in the array as well as the maximum value.
 

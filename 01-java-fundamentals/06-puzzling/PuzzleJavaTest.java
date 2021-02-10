@@ -15,9 +15,10 @@ public class PuzzleJavaTest {
 
         //Create an array that contains all 26 letters of the alphabet (this array must have 26 values). Shuffle the array and, after shuffling, display the last letter from the array. Have it also display the first letter of the array. If the first letter in the array is a vowel, have it display a message.
         String[] Alpha = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
-        System.out.println(done.GetAlpha(Alpha));
+        done.GetAlpha(Alpha);
 
         //Generate and return an array with 10 random numbers between 55-100.
+        System.out.println(done.RandomTen());
 
         //Generate and return an array with 10 random numbers between 55-100 and have it be sorted (showing the smallest number in the beginning). Display all the numbers in the array. Next, display the minimum value in the array as well as the maximum value.
 
