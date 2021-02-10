@@ -15,7 +15,7 @@ public class BasicJavaTest {
         result.PrintX();
 
         //Write a method (sets of instructions) that takes any array and prints the maximum value in the array. Your method should also work with a given array that has all negative numbers (e.g. [-3, -5, -7]), or even a mix of positive numbers, negative numbers and zero.
-        int[] myArray3 = {0,4,2};
+        int[] myArray3 = {-1,0,1,2};
         String answer = result.PrintMax(myArray3);
         System.out.println(answer);
 
@@ -26,9 +26,17 @@ public class BasicJavaTest {
         result.GetOdds();
 
         //Write a method that takes an array and returns the number of values in that array whose value is greater than a given value y. For example, if array = [1, 3, 5, 7] and y = 3, after your method is run it will print 2 (since there are two values in the array that are greater than 3).
+        result.GetGreater(myArray3);
+
         //Given any array x, say [1, 5, 10, -2], write a method that multiplies each value in the array by itself. When the method is done, the array x should have values that have been squared, say [1, 25, 100, 4].
+        result.Squared(myArray3);
+
         //Given any array x, say [1, 5, 10, -2], write a method that replaces any negative number with the value of 0. When the method is done, x should have no negative values, say [1, 5, 10, 0].
+        result.ReplaceNeg(myArray3);
+
         //Given any array x, say [1, 5, 10, -2], write a method that returns an array with the maximum number in the array, the minimum value in the array, and the average of the values in the array. The returned array should be three elements long and contain: [MAXNUM, MINNUM, AVG]
+        result.MaxMinAv(myArray3);
+        
         //Given any array x, say [1, 5, 10, 7, -2], write a method that shifts each number by one to the front. For example, when the method is done, an x of [1, 5, 10, 7, -2] should become [5, 10, 7, -2, 0]. Notice that the last number is 0. The method does not need to wrap around the values shifted out of bounds.
     }
 }

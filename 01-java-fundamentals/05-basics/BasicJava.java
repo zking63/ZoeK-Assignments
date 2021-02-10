@@ -58,8 +58,59 @@ public class BasicJava {
         System.out.println(Y);
     }
     //Write a method that takes an array and returns the number of values in that array whose value is greater than a given value y. For example, if array = [1, 3, 5, 7] and y = 3, after your method is run it will print 2 (since there are two values in the array that are greater than 3).
+    public void GetGreater(int[] myArray3){
+        int y = 1;
+        int total = 0;
+        for (int i = 0; i < myArray3.length; i++){
+            if (myArray3[i] > y){
+                total++; 
+            }
+        }
+        System.out.println(total);
+    }
     //Given any array x, say [1, 5, 10, -2], write a method that multiplies each value in the array by itself. When the method is done, the array x should have values that have been squared, say [1, 25, 100, 4].
+    public void Squared(int[] myArray3){
+        ArrayList<Integer> newmyArray3 = new ArrayList<Integer>();
+        for (int i = 0; i <myArray3.length; i++){
+            newmyArray3.add(myArray3[i] * myArray3[i]);
+        }
+        System.out.println(newmyArray3);
+    }
     //Given any array x, say [1, 5, 10, -2], write a method that replaces any negative number with the value of 0. When the method is done, x should have no negative values, say [1, 5, 10, 0].
+    public void ReplaceNeg(int[] myArray3){
+        ArrayList<Integer> newReplace = new ArrayList<Integer>();
+        for (int i = 0; i <myArray3.length; i++){
+            if (myArray3[i] >= 0){
+                newReplace.add(myArray3[i]);
+            }
+            else {
+                newReplace.add(0);
+            }
+        }
+        System.out.println(newReplace);
+    }
+
     //Given any array x, say [1, 5, 10, -2], write a method that returns an array with the maximum number in the array, the minimum value in the array, and the average of the values in the array. The returned array should be three elements long and contain: [MAXNUM, MINNUM, AVG]
+    public void MaxMinAv(int[] myArray3){
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        int max = myArray3[0];
+        int min = myArray3[0];
+        int average = 0;
+        int sum = 0;
+        for (int i =0; i < myArray3.length; i++){
+            if (myArray3[i] > max){
+                max = myArray3[i];
+            }
+            if (myArray3[i] < min){
+                min = myArray3[i];
+            }
+            sum+= myArray3[i];
+            average = sum/myArray3.length;
+        }
+        values.add(max);
+        values.add(min);
+        values.add(average);
+        System.out.println(values);
+    }
     //Given any array x, say [1, 5, 10, 7, -2], write a method that shifts each number by one to the front. For example, when the method is done, an x of [1, 5, 10, 7, -2] should become [5, 10, 7, -2, 0]. Notice that the last number is 0. The method does not need to wrap around the values shifted out of bounds.
 }
