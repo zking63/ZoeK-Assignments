@@ -114,7 +114,6 @@ public class BasicJava {
     }
     //Given any array x, say [1, 5, 10, 7, -2], write a method that shifts each number by one to the front. For example, when the method is done, an x of [1, 5, 10, 7, -2] should become [5, 10, 7, -2, 0]. Notice that the last number is 0. The method does not need to wrap around the values shifted out of bounds.
     public int[] GetShift(int[] myArray3){
-        //ArrayList<Integer> numbers = new ArrayList<Integer>();
         for (int i = 1; i < myArray3.length; i++){
             myArray3[i-1] = myArray3[i];
         }
