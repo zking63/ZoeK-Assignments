@@ -8,7 +8,7 @@ public class Hashmatique{
         trackList.put("Keep Ya Head Up", "Some say the blacker the berry, the sweeter the juice");
         trackList.put("All Bout U", "Ahh yeah \n  Yeauhh! \n  It's all about you, one time! \n  I'ma say it's all about you baby, yeah");
         for(String key : trackList.keySet()) {
-            System.out.println((String.format("Track: %s: Lyrics: %s", key, trackList.get(key))));
+            System.out.println((String.format("Track: %s Lyrics: %s", key, trackList.get(key))));
         }
         System.out.println("Some of the lyrics to Dear Mama: "+trackList.get("Dear Mama"));
     }
