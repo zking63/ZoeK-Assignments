@@ -21,7 +21,8 @@ public class PuzzleJavaTest {
         System.out.println(done.RandomTen());
 
         //Generate and return an array with 10 random numbers between 55-100 and have it be sorted (showing the smallest number in the beginning). Display all the numbers in the array. Next, display the minimum value in the array as well as the maximum value.
-
+        done.RandomDisplay();
+        
         //Create a random string that is 5 characters long.
 
         //Generate an array with 10 random strings that are each 5 characters long

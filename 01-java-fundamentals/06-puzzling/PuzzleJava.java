@@ -53,10 +53,10 @@ public class PuzzleJava{
     //Generate and return an array with 10 random numbers between 55-100.
     public ArrayList<Integer> RandomTen(){
         ArrayList<Integer> myList = new ArrayList<Integer>();
-        for (int i = 0; i <100; i++){
+        for (int i = 0; i <10; i++){
             //multiple ways to do this
             //one way: int num = ThreadLocalRandom.current().nextInt(55, 101);
-            
+
             /* another way:
             Random rand = new Random();
             int upperbound = 101;
@@ -73,6 +73,22 @@ public class PuzzleJava{
     }
 
     //Generate and return an array with 10 random numbers between 55-100 and have it be sorted (showing the smallest number in the beginning). Display all the numbers in the array. Next, display the minimum value in the array as well as the maximum value.
+    public ArrayList<Integer> RandomDisplay(){
+        ArrayList<Integer> myList = new ArrayList<Integer>();
+        for (int i = 0; i <10; i++){
+            int max = 101;
+            int min = 55;
+            int num = (int) (Math.random() * (max - min +1) +min);
+            myList.add(num);
+            Collections.sort(myList);
+        }
+        int min1 = myList.get(0);
+        int max1 = myList.get(myList.size() -1);
+        System.out.println(myList);
+        System.out.println("The max is: " +max1);
+        System.out.println("The min is " +min1);
+        return myList;
+    }
 
     //Create a random string that is 5 characters long.
 
