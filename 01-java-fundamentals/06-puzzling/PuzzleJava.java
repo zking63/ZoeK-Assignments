@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -91,6 +92,61 @@ public class PuzzleJava{
     }
 
     //Create a random string that is 5 characters long.
+    public void RanSdo(){
+        Random alphList = new Random();
+        ArrayList<Character> rando = new ArrayList<Character>();
+        char [] Five = new char [5];
+        for (char ch = 'A'; ch <= 'Z'; ++ch){
+            rando.add(ch);
+            Collections.shuffle(rando);
+        }
+        for (int i =0; i <5; i++){
+            int random = alphList.nextInt(26);
+            Five[i] = (rando.get(random));
+        }
+        System.out.println(Five);
+    }
+
+        //Create a random array that is 5 characters long.
+        public void RandoS(){
+            Random alphList2 = new Random();
+            ArrayList<Character> rando2 = new ArrayList<Character>();
+            ArrayList<Character> Five2 = new ArrayList<Character>();
+            for (char ch = 'A'; ch <= 'Z'; ++ch){
+                rando2.add(ch);
+                Collections.shuffle(rando2);
+            }
+            for (int i =0; i <5; i++){
+                int random2 = alphList2.nextInt(26);
+                Five2.add(rando2.get(random2));
+            }
+            System.out.println(Five2);
+        }
 
     //Generate an array with 10 random strings that are each 5 characters long
+    public void RandoS105(){
+        //generate strings
+        Random randomMethod = new Random();
+        ArrayList<Character> randomListofLetters = new ArrayList<Character>();
+        ArrayList<String> Arrayof10 = new ArrayList<String>();
+        char [] FiveCharacterArray = new char [5];
+        String str2 = new String();
+        //generate arrays
+        //10 string array ready to be filled
+        for (int j = 0; j <=10; j++){
+            Arrayof10.add(str2);
+            //generate random alphabet
+            for (char ch = 'A'; ch <= 'Z'; ++ch){
+                randomListofLetters.add(ch);
+                Collections.shuffle(randomListofLetters);
+            }
+            //5 character strings
+            for (int i =0; i <5; i++){
+                int randomNumber = randomMethod.nextInt(26);
+                FiveCharacterArray[i] = (randomListofLetters.get(randomNumber));
+                str2 = String.valueOf(FiveCharacterArray);
+            }
+        }
+        System.out.println(Arrayof10);
+    }
 }
