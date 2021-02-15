@@ -3,8 +3,8 @@ public class Gorilla extends Mammal {
         super(energyLevel);
 	}
 	public void throwSomething() {
-		System.out.println("throwing");
-		energyLevel -= 5;
+        System.out.println("throwing");
+        energyLevel -= 5;
 	}
 	public void eatBanana() {
 		System.out.println("eating bananas");
