@@ -6,6 +6,6 @@ public class Human {
 
     public void attack(Human target) {
         target.health -= this.strength;
-        System.out.println(target.health);
+        //System.out.println(target.health);
     }
 }

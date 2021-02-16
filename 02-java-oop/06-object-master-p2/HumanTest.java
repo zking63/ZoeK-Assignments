@@ -5,6 +5,7 @@ public class HumanTest {
         Wizard wizard = new Wizard();
         Ninja ninja = new Ninja();
         Samurai samurai = new Samurai();
+        Samurai samurai2 = new Samurai();
 
         human.attack(human2);
         wizard.heal(human);
