@@ -11,5 +11,9 @@ public class BankAccountTest {
         //System.out.println(account1);
         System.out.println(BankAccount.getnumberofAccounts());
         System.out.println(BankAccount.getTotalMoney());
+        account1.DepositMoney(10, "checking");
+        System.out.println(BankAccount.getTotalMoney());
+        account1.WithdrawMoney(50, "checking");
+        System.out.println(BankAccount.getTotalMoney());
     }
 }
