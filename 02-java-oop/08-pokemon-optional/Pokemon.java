@@ -9,7 +9,6 @@ public class Pokemon extends AbstractPokemon{
         this.health = health;
         this.type = type;
         count++;
-        System.out.println("Name: " + name + "\n Health: " + health + "\n Type: " + type);
     }
     //attack method
     void attackPokemon(Pokemon pokemon) {
