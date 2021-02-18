@@ -1,4 +1,4 @@
-public class Pokemon {
+public class Pokemon extends AbstractPokemon{
     private String name; 
     private int health = 0;
     private String type;
