@@ -6,7 +6,7 @@ public class BankAccount {
     private static int numberofAccounts = 0;
     private static int totalMoney = 0;
 
-    private static String getAcctNumber(){ //why static?, what if we wanted to make sure no repeats?
+    private static String getAcctNumber(){ //why static?(bc this is going to run off the class, not gripped by an object, object doesn't have to be created first), what if we wanted to make sure no repeats (array)?
         String acct = "";
         Random x = new Random();
         for (int i = 0; i < 10; i++){
@@ -35,7 +35,7 @@ public class BankAccount {
     public double getSavings(){
         return this.savingsBalance;
     }
-    public void DepositMoney(double deposit, String choice){ //Why didn't I need to write (BankAccount, double deposit, String choice) like in the human assignment?
+    public void DepositMoney(double deposit, String choice){ //Why didn't I need to write (BankAccount, double deposit, String choice) like in the human assignment? Object is within the class)
         if (choice == "checking"){
             this.checkingBalance += deposit;
             System.out.println("Account number: " + accountNumber + "\n Checking Balance: " + checkingBalance + "\n Savings Balance: " + savingsBalance);
