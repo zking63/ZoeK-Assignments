@@ -10,7 +10,7 @@ public class Galaxy extends Phone implements Ringable {
     public String unlock() {
         return "Unlock via fingerprint.";
     }
-    @Override //why is this necessary?
+    @Override //why is this necessary? it used to be, now it just checks it
     public void displayInfo() {
         System.out.println("Version Number: " + this.getVersionNumber());
         System.out.println("Batter Percentage: " + this.getBatteryPercentage());

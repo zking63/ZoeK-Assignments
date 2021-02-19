@@ -1,10 +1,10 @@
-public class Calculator implements java.io.Serializable {
+public class Calculator2 implements java.io.Serializable {
     private double number1;
     private double number2;
     private double result;
     private String operation;
 
-    public Calculator() {
+    public Calculator2() {
 	}
 
     public void setNumber1(double number){
@@ -32,6 +32,12 @@ public class Calculator implements java.io.Serializable {
         }
         if (this.operation == "-"){
             result = number1 - number2;
+        }
+        if (this.operation == "x" || this.operation == "*"){
+            result = number1 * number2;
+        }
+        if (this.operation == "/"){
+            result = number1/number2;
         }
         return result; 
     }   

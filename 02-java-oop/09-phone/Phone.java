@@ -27,5 +27,5 @@ public abstract class Phone {
     public String getVersionNumber() {
         return this.versionNumber;
     }
-    //why isn't there setters?
+    //why isn't there setters? you need setters when the constructor isn't explicit or when private 
 }

@@ -1,7 +1,7 @@
-public class CalculatorTest {
+public class Calculator2Test {
     public static void main(String[] args){
-        Calculator answer = new Calculator();
-        Calculator answer2 = new Calculator();
+        Calculator2 answer = new Calculator2();
+        Calculator2 answer2 = new Calculator2();
 
         answer.setNumber1(10);
         answer.setNumber2(10);
