@@ -2,6 +2,7 @@ public class DLL {
     public Node head;
     public Node tail; //when do you initialize values and when do you not?
     public Node current;
+    public int counter = 0;
 
     public DLL() { //why do we need to set them to null?
         this.head = null;
@@ -48,19 +49,24 @@ public class DLL {
         return temp;
     }
 
-    public void contains(Integer value){
+    public boolean contains(Integer value1){
         current = this.head;
-        while (current.value != null){
-            if (current.value == value){
+        while (current != null){
+            if (current.value == value1){
                 System.out.println("Value found!");
-                //return true;
+                return true;
             }
-            if (current.value != value){
-                current.value = current.next.value;
-                System.out.println("Value not found!");
-                //return false;
-            }
+            current = current.next;
         }
-        return;
+        System.out.println("Value not found!");
+        return false;
+    }
+    public int size(){
+        current = this.head;
+        while (current != null){
+            counter++;
+            current = current.next;
+        }
+        return counter;
     }
 }

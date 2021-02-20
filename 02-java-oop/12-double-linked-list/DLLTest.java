@@ -15,18 +15,20 @@ public class DLLTest {
         dll.push(n5);
         dll.push(n6);
         
-        //dll.printValuesForward();
-        //dll.printValuesBackward();
+        dll.printValuesForward();
+        dll.printValuesBackward();
 
         //removes the last node of our DLL and returns it
-        //System.out.println(dll.pop().value);
+        //dll.pop();
+        System.out.println(dll.pop().value);
 
         //returns a boolean whether the value in the argument is in the list or not. Return true if the value exists, else, return false.
-        dll.contains(80);
+        dll.contains(50);
+        dll.contains(20);
         dll.contains(11);
         dll.contains(100);
-        /*System.out.println(dll.contains(11));
-        System.out.println(dll.contains(100));
-        System.out.println(dll.contains(80));*/
+
+        //return number of nodes
+        System.out.println(dll.size());
     }
 }
