@@ -7,12 +7,7 @@ public class TriesTest {
         trie.insertWord("chip");
         trie.insertWord("trie");
         trie.insertWord("try");
-        
-        Set<Character> keys = trie.root.children.keySet(); //why is the keyset() up here?
-        for (Character key : keys) {
-            System.out.println(keys);
-        }
 
-        trie.isPrefixValid("ch");
+        System.out.println(trie.isPrefixValid("chi"));
     }
 }
