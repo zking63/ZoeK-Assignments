@@ -9,5 +9,8 @@ public class TriesTest {
         trie.insertWord("try");
 
         System.out.println(trie.isPrefixValid("chi"));
+        System.out.println(trie.isPrefixValid("zz"));
+        System.out.println(trie.isWordValid("chip"));
+        System.out.println(trie.isWordValid("pop"));
     }
 }
