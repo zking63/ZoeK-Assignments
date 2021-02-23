@@ -12,5 +12,10 @@ public class TriesTest {
         System.out.println(trie.isPrefixValid("zz"));
         System.out.println(trie.isWordValid("chip"));
         System.out.println(trie.isWordValid("pop"));
+
+        trie.printAllKeys();
+        //Set<Character> keys = trie.root.children.keySet();
+        //System.out.println(trie.root.children.get('c').children.keySet());
+        //System.out.println("The set is: " + entrySet());
     }
 }

@@ -1,5 +1,7 @@
 import java.security.Key;
+import java.security.KeyStore.Entry;
 import java.util.Set;
+import java.util.HashMap;
 
 public class Tries {
     public Node root;
@@ -50,5 +52,20 @@ public class Tries {
             currentnode = child;
         }
         return currentnode.isCompleteWord;
+    }
+    public void printAllKeys(){
+        Set<Character> keys = root.children.keySet();
+        for(Character key : keys){
+            //Node currentNode = this.root.children.get(key);
+            //Node child = currentNode.children.get(key);
+            System.out.println(key);
+            System.out.println(root.children.get(key).children.keySet());
+            Set<Character> child = root.children.get(key).children.keySet();
+            for(Character key1 : child){
+                System.out.println(root.children.get(key1).children.keySet());
+            }
+            //System.out.println(child.get(key));
+            //currentNode = child;
+        }
     }
 }
