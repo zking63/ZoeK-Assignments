@@ -54,18 +54,14 @@ public class Tries {
         return currentnode.isCompleteWord;
     }
     public void printAllKeys(){
-        Set<Character> keys = root.children.keySet();
-        for(Character key : keys){
-            //Node currentNode = this.root.children.get(key);
-            //Node child = currentNode.children.get(key);
+        Set<Character> keys = root.children.keySet(); //get node and set another to current, if there is a child and if it is null return, if not iterate through keys and print value
+        for(Character key : keys){ 
             System.out.println(key);
             System.out.println(root.children.get(key).children.keySet());
             Set<Character> child = root.children.get(key).children.keySet();
             for(Character key1 : child){
                 System.out.println(root.children.get(key1).children.keySet());
             }
-            //System.out.println(child.get(key));
-            //currentNode = child;
         }
     }
 }
