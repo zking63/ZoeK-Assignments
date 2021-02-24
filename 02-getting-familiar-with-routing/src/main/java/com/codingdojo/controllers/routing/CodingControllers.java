@@ -1,11 +1,12 @@
-package com.codingdojo.controllerspractice.controllers;
+package com.codingdojo.controllers.routing;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CodingController {
-	@RequestMapping("/coding")
+@RequestMapping("/coding")
+public class CodingControllers {
+	@RequestMapping("")
 	public String index() {
 		return "Hello Coding Dojo!";
 	}

@@ -1,4 +1,4 @@
-package com.codingdojo.controllerspractice.controllers;
+package com.codingdojo.controllers.routing;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -8,7 +8,7 @@
 		<version>2.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.codingdojo.controllerspractice.controllers</groupId>
+	<groupId>com.codingdojo.controllers.routing</groupId>
 	<artifactId>02-getting-familiar-with-routing</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>02-getting-familiar-with-routing</name>
