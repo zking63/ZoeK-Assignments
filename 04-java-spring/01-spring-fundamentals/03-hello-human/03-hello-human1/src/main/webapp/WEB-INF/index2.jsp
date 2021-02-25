@@ -5,10 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Results</title>
+<title>hello</title>
 </head>
 <body>
-	<h1>Hello ${ modelName }</h1>
-
+	<h1>Hello human</h1>
+	<form method="POST" action="/process">
+		<p>Your Name: <input type="text" name="name"></p>
+		<button>Submit</button>
+	</form>
 </body>
 </html>
