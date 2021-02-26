@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="js/time.js"></script>
 <title>Home page</title>
 </head>
 <body>

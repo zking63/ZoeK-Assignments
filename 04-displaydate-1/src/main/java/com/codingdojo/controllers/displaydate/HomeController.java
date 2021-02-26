@@ -17,13 +17,15 @@ public class HomeController {
 	@RequestMapping("/date")
 	public String showDate(Model model) {
 		Date date = new Date();
-		model.addAttribute("rightNow", date);
+		SimpleDateFormat dm = new SimpleDateFormat("EEEE, 'the' dd 'of' MMMM, YYYY");
+		model.addAttribute("rightNow", dm.format(date));
 		return "date.jsp";
 	}
 	@RequestMapping("/time")
 	public String showTime(Model model) {
-		Date date = new Date();
-		model.addAttribute("rightNow", date);
-		return "date.jsp";
+		Date time = new Date();
+		SimpleDateFormat dm = new SimpleDateFormat("h:mm a");
+		model.addAttribute("rightNow", dm.format(time));
+		return "time.jsp";
 	}
 }

@@ -10,6 +10,6 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-	<h1>${ rightNow }</h1>
+	<h1 id="date">${ rightNow }</h1>
 </body>
 </html>
