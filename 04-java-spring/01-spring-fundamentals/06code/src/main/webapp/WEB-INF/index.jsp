@@ -6,12 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Home page</title>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 	<span><c:out value="${ error }" /></span>
-	<form method="POST" action="/attempt">
-		<label>Code: <input type="text" name="code"></label>
-		<button>Submit</button>
+	<form class="codeF" method="POST" action="/attempt">
+		<label class="code">Code: <input type="text" name="code"></label>
+		<button class="codeB">Submit</button>
 	</form>
 </body>
 </html>
