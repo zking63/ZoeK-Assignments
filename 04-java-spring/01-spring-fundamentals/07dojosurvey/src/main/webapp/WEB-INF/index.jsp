@@ -8,7 +8,7 @@
 <title>Home page</title>
 </head>
 <body>
-	<form method="POST" action="/result">
+	<form method="POST" action="/answers">
 		<label>Name<input type="text" name="name"></label>
 		<label>Location<input type="text" name="location"></label>
 		<label>Favorite Language</label>
