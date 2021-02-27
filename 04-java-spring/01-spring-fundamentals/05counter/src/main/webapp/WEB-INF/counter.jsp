@@ -8,6 +8,6 @@
 <title>Home page</title>
 </head>
 <body>
-	<h1>Counter: "${ count }]</h1>
+	<h1>Counter: ${ count }</h1>
 </body>
 </html>
