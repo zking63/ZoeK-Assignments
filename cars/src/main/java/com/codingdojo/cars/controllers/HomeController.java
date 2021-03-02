@@ -3,6 +3,7 @@ package com.codingdojo.cars.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,10 @@ public class HomeController {
 	@PostMapping("/")
 	public Car create(Car car) {
 		return this.cService.createCar(car);
+	}
+	@DeleteMapping("/{id}")
+	public void deleteCar(@PathVariable("id")Long id) {
+		this.cService.deleteCar(id);
 	}
 	
 }
