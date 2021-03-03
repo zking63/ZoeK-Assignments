@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     @Size(min = 5, max = 200)
     private String title;
     @Size(min = 5, max = 200)
@@ -42,7 +42,6 @@ public class Book {
     }
     
     //getters and setters
-    
     @PrePersist
     protected void onCreate(){
         this.createdAt = new Date();
@@ -51,10 +50,10 @@ public class Book {
     protected void onUpdate(){
         this.updatedAt = new Date();
     }
-    public Long getId() {
+    public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitle() {
