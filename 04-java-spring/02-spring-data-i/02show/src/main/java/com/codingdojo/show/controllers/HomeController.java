@@ -82,4 +82,9 @@ import com.codingdojo.show.service.BookService;
          return "redirect:/books";
      }
  }
+ @RequestMapping(value="/books/delete/{id}")
+ public String destroyBook(@PathVariable("id") int id) {
+     bookService.destroyBook(id);
+     return "redirect:/books";
+ }
 }

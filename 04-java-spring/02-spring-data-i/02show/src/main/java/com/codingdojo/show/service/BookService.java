@@ -63,5 +63,10 @@ public Book updateBook(int id, Book book) {
     }
     return book;
   }
+public void destroyBook(int id) {
+    if (id < books.size()){
+        books.remove(id);
+    }
+}
 }
 
