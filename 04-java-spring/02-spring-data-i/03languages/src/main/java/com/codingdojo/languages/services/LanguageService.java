@@ -17,29 +17,21 @@ public class LanguageService {
 	 public LanguageService(LanguagesRepository languagesRepository) {
 	     this.languagesRepository = languagesRepository;
 	 }
-	 
-	 private List<Language> languages = new ArrayList(Arrays.asList(
-			 new Language("Java", "James G", (float) 1.8),
-			 new Language("Python", "Guido van R", (float) 3.6),
-			 new Language("Javascript", "Brendan Eich", (float) 2.8)
-			 ));
 	 public List<Language> allLanguages(){
-		 return languages;
+		 return languagesRepository.findAll();
 	 }
 	 // creates an object
 	 public Language createLanguage(Language a) {
 	     return languagesRepository.save(a);
 	 }
-	 // retrieves an object
-	 public Language findLanguage(Long id) {
-	     Optional<Language> optionalLanguage = languagesRepository.findById((long) id);
-	     if(optionalLanguage.isPresent()) {
-	         return optionalLanguage.get();
-	     } else {
-	         return null;
-	     }
-	 }
-	 public void addLanguage(Language language) {
-		    languages.add(language);
-		}
+	 // retrieves an object by id
+	public Language findLanguage(Long id) {
+		return languagesRepository.findById(id).orElse(null);
+	}
+	public Language updateLanguage(Language language) {
+		return languagesRepository.save(language);
+	}
+	public void deleteLanguage(Long id) {
+		languagesRepository.deleteById(id);
+	}
 }

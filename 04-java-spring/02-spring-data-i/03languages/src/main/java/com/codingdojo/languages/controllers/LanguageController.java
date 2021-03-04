@@ -26,24 +26,47 @@ public class LanguageController {
 	}
 	@RequestMapping("/")
 	public String index(Model model) {
-		model.addAttribute("Languages", languageService.allLanguages());
+		model.addAttribute("language", languageService.allLanguages());
 		return "index.jsp";
 	}
+	
 	//instantiating a new language type and binding to our view model
 	//binding to our model will allow us to create a form that is also bound to the language type, which will allow us to validate the information against our language type
 	@RequestMapping("/new")
 	public String newLanguage(@ModelAttribute("language")Language language) {
 		return "new.jsp";
 	}
-	//write the route to check if the submitted post has any errors
-	@RequestMapping(value="/new", method=RequestMethod.POST)
-	public String createLanguage(@Valid @ModelAttribute("langauge")Language language, BindingResult result) {
-		if(result.hasErrors()) {
-			return "new.jsp";
-		}
-		else {
-			languageService.createLanguage(language);
-			return "redirect:/";
-		}
+    @PostMapping("/new")
+    public String createLanguage1(@Valid @ModelAttribute("language") Language language, BindingResult result) {
+        if (result.hasErrors()) {
+            return "new.jsp";
+        }else{
+        	languageService.createLanguage(language);
+            return "redirect:/";
+        }
+    }
+	@RequestMapping("/{id}")
+	public String Show(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("language", languageService.findLanguage(id));
+		return "show.jsp";
+	}
+	@RequestMapping("/{id}/edit")
+	public String Edit(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("language", languageService.findLanguage(id));
+		return "edit.jsp";
+	}
+    @PostMapping("/{id}/edit")
+    public String updateLanguage1(@Valid @ModelAttribute("language") Language language, BindingResult result) {
+        if (result.hasErrors()) {
+            return "edit.jsp";
+        }else{
+        	languageService.updateLanguage(language);
+            return "redirect:/{id}";
+        }
+    }
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	public String Delete(@PathVariable("id") Long id) {
+		languageService.deleteLanguage(id);
+		return "redirect:/";
 	}
 }

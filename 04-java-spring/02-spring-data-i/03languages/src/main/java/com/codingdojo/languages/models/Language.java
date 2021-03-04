@@ -26,8 +26,7 @@ public class Language {
 	public Language() {
 	}
 
-	public Language(@Size(min = 2, max = 20) String name, @Size(min = 2, max = 20) String creator,
-			@Min(1) Float currentVersion) {
+	public Language(String name, String creator, Float currentVersion) {
 		this.name = name;
 		this.creator = creator;
 		this.currentVersion = currentVersion;

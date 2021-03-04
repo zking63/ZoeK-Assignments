@@ -13,17 +13,25 @@
 	            <th>Name</th>
 	            <th>Creator</th>
 	            <th>Version</th>
+	            <th>ID</th>
 	        </tr>
 	    </thead>
-	    <tbody>
-	        <c:forEach items="${ Languages }" var="lang">
-	        <tr>
-	            <td><c:out value="${lang.name}"/></td>
-	            <td><c:out value="${lang.creator}"/></td>
-	            <td><c:out value="${lang.currentVersion}"/></td>
-	        </tr>
-	        </c:forEach>
-	    </tbody>
+			<tbody>
+			<c:forEach items="${ language }" var="lang">
+				<tr>
+					<td><a href="/${ lang.id }">${ lang.name }</a></td>
+					<td>${ lang.creator }</td>
+					<td>${ lang.currentVersion }</td>
+					<td>
+						<a class="btn btn-primary" href="/${ lang.id }/edit">Edit</a>
+						<form id="delete-form" action="/${lang.id}" method="post">
+						    <input type="hidden" name="_method" value="delete">
+						    <input class="btn btn-danger" type="submit" value="Delete">
+						</form>
+					</td>
+				</tr>
+			</c:forEach>
+			</tbody>
 	</table>
 </body>
 </html>
