@@ -33,9 +33,8 @@ public class Language {
 	public Language() {
 	}
 
-	public Language(Long id, @Size(min = 2, max = 20) String name, @Size(min = 2, max = 20) String creator,
+	public Language(@Size(min = 2, max = 20) String name, @Size(min = 2, max = 20) String creator,
 			@Min(1) String currentVersion) {
-		this.id = id;
 		this.name = name;
 		this.creator = creator;
 		this.currentVersion = currentVersion;
