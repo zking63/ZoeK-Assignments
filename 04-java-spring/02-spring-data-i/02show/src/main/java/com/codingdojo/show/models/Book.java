@@ -32,6 +32,7 @@ public class Book {
     private Date createdAt;
     private Date updatedAt;
     
+    
     public Book() {
     }
     public Book(String title, String desc, String lang, int pages) {

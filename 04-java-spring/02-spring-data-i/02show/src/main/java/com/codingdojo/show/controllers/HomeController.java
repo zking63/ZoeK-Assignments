@@ -44,10 +44,6 @@ import com.codingdojo.show.service.BookService;
      model.addAttribute("book", book);
      return "showBook.jsp";
  }
- @RequestMapping("/books/new")
- public String newBook(@ModelAttribute("book") Book book) {
-     return "/books/new.jsp";
- }
  @RequestMapping(value="/books", method=RequestMethod.POST)
  public String create(@Valid @ModelAttribute("book") Book book, BindingResult result) {
      if (result.hasErrors()) {
@@ -86,5 +82,18 @@ import com.codingdojo.show.service.BookService;
  public String destroyBook(@PathVariable("id") int id) {
      bookService.destroyBook(id);
      return "redirect:/books";
+ }
+ @RequestMapping("/books/new")
+ public String newBook(@ModelAttribute("book") Book book) {
+     return "newBook.jsp";
+ }
+ @PostMapping("/books/new")
+ public String createBook(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+     if (result.hasErrors()) {
+         return "newBook.jsp";
+     }else{
+         bookService.addBook(book);
+         return "redirect:/books";
+     }
  }
 }

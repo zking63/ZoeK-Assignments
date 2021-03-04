@@ -68,5 +68,8 @@ public void destroyBook(int id) {
         books.remove(id);
     }
 }
+public void addBook(Book book) {
+    books.add(book);
+}
 }
 
