@@ -22,7 +22,7 @@ public class LanguagesApi {
 	     return this.languageService.allLanguages();
 	 }
 	 @RequestMapping(value="/api/languages", method=RequestMethod.POST)
-	 public Language create(@RequestParam(value="name") String name, @RequestParam(value="currentVersion") String currentVersion, @RequestParam(value="creator") String creator) {
+	 public Language create(@RequestParam(value="name") String name, @RequestParam(value="currentVersion") Float currentVersion, @RequestParam(value="creator") String creator) {
 	     Language language = new Language(name, currentVersion, creator);
 	     return languageService.createLanguage(language);
 	 }

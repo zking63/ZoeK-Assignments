@@ -19,9 +19,9 @@ public class LanguageService {
 	 }
 	 
 	 private List<Language> languages = new ArrayList(Arrays.asList(
-			 new Language("Java", "James G", "1.8"),
-			 new Language("Python", "Guido van R", "3.6"),
-			 new Language("Javascript", "Brendan Eich", "2.8.3")
+			 new Language("Java", "James G", (float) 1.8),
+			 new Language("Python", "Guido van R", (float) 3.6),
+			 new Language("Javascript", "Brendan Eich", (float) 2.8)
 			 ));
 	 public List<Language> allLanguages(){
 		 return languages;
