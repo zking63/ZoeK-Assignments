@@ -7,7 +7,8 @@
 </head>
 <body>
 	<button><a href="/songs/new">Add song</a></button>
-	<h1><c:out value = "${artist}" var="artist"/>All songs by ${artist}</h1>
+	<button><a href="/songs">Back to library</a></button>
+	<h1>All songs by <c:out value="${artist}"/></h1>
 	<table>
 	    <thead>
 	        <tr>
@@ -22,7 +23,7 @@
 					<td><a href="/songs/${ songs.id }">${ songs.title }</a></td>
 					<td>${ songs.rating }</td>
 					<td>${ songs.id }</td>
-					<td><a href="/songs/delete/${song.id}">Delete</a></td>
+					<td><a href="/songs/delete/${songs.id}">Delete</a></td>
 				</tr>
 			</c:forEach>
 			</tbody>
