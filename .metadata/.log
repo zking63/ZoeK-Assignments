@@ -8996,3 +8996,14 @@ java.lang.InterruptedException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.core.resources 2 2 2021-03-07 12:19:25.936
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-03-07 12:19:25.936
+!MESSAGE The project description file (.project) for '02-getting-familiar-with-routing' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-03-07 12:19:25.936
+!MESSAGE The project description file (.project) for '04-displaydate-1' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-03-07 12:19:25.936
+!MESSAGE The project description file (.project) for '04lookify' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-03-07 12:19:25.936
+!MESSAGE The project description file (.project) for '13.tries' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
