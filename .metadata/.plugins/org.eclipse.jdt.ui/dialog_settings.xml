@@ -99,4 +99,12 @@
 			<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
 		</section>
 	</section>
+	<section name="nls_accessor_history">
+		<section name="0">
+			<item key="accessorName" value="Messages"/>
+			<item key="accessorPackage" value="=01-drivers-license/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.codingdojo.driverslicense.models"/>
+			<item key="bundleName" value="messages.properties"/>
+			<item key="bundlePackage" value="=01-drivers-license/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.codingdojo.driverslicense.models"/>
+		</section>
+	</section>
 </section>
