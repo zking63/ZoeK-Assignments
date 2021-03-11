@@ -1,7 +1,8 @@
-package com.codingdojo.productscategories.models;
+package com.codingdojo.productscategories1.models;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Locale.Category;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

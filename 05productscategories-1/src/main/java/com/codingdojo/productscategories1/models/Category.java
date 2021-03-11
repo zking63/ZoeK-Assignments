@@ -1,4 +1,4 @@
-package com.codingdojo.productscategories.models;
+package com.codingdojo.productscategories1.models;
 
 import java.util.Date;
 import java.util.List;
@@ -17,25 +17,23 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="products")
-public class Product {
+@Table(name="categories")
+public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String description;
-	private float price;
 	@Column(updatable=false)
 	private Date createdAt;
 	private Date updatedAt;
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
-			name = "categories_products",
-			joinColumns = @JoinColumn(name = "product_id"),
-			inverseJoinColumns = @JoinColumn(name = "category_id")
+	        name = "categories_products", 
+	        joinColumns = @JoinColumn(name = "category_id"), 
+	        inverseJoinColumns = @JoinColumn(name = "product_id")
 			)
-	private List<Category> categories;
-	public Product() {
+	private List<Product> products;
+	public Category() {
 		
 	}
     @PrePersist
@@ -58,18 +56,6 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public float getPrice() {
-		return price;
-	}
-	public void setPrice(float price) {
-		this.price = price;
-	}
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -82,10 +68,10 @@ public class Product {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	public List<Category> getCategories() {
-		return categories;
+	public List<Product> getProducts() {
+		return products;
 	}
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 }
