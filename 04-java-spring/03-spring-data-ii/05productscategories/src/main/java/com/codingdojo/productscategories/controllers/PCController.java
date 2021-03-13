@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,13 +16,16 @@ import com.codingdojo.productscategories.models.Category;
 import com.codingdojo.productscategories.models.Product;
 import com.codingdojo.productscategories.services.PCService;
 
+@Controller
 public class PCController {
 	private final PCService pcservice;
 	public PCController (PCService pcservice) {
 		this.pcservice = pcservice;
 	}
-	public String index() {
-		return "Hello world";
+	@RequestMapping("/")
+	public String index(Model model) {
+		model.addAttribute("product", pcservice.getProducts());
+		return "index.jsp";
 	}
 	@RequestMapping("/product/new")
 	public String newProduct(@ModelAttribute("product")Product product) {
@@ -51,7 +55,7 @@ public class PCController {
 			return "redirect:/";
 		}
 	}
-	@RequestMapping("/product/{id}")
+	/*@RequestMapping("/product/{id}")
 	public String showProduct(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("product", pcservice.findProduct(id));
 		return "/product/showproduct.jsp";
@@ -72,5 +76,5 @@ public class PCController {
 		List<Product> products = pcservice.getProducts();
 		model.addAttribute("products", products);
 		return "/category/showcategory.jsp";
-	}
+	}*/
 }
