@@ -10,6 +10,8 @@
 	<title>Products</title>
 </head>
 <body>
+	<button><a href="/product/new">Add new product</a></button>
+	<button><a href="/category/new">Add new category</a></button>
 	<h1>Products</h1>
 	<table>
 	    <thead>
@@ -19,6 +21,7 @@
 	            <th>Price</th>
 	            <th>ID</th>
 	            <th>Category</th>
+	            <th>Change</th>
 	        </tr>
 	    </thead>
 		<tbody>
@@ -32,6 +35,7 @@
 						<c:out value="${cat.name}"/>
 						</c:forEach>
 					</td>
+					<td><a href="/product/${p.id}">Add category</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

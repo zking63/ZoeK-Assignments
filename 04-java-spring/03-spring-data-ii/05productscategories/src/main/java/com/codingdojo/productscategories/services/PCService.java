@@ -32,6 +32,9 @@ public class PCService {
 	public Category createCategory(Category c) {
 		return crepo.save(c);
 	}
+	public Category updateCategory(Category c) {
+		return crepo.save(c);
+	}
 	public Product findProduct(Long id) {
 		return prepo.findById(id).orElse(null);
 	}

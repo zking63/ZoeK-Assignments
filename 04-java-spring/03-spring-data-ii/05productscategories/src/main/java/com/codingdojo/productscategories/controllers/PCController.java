@@ -58,7 +58,7 @@ public class PCController {
 		}
 	}
 	@RequestMapping("/product/{id}")
-	public String showProduct(@PathVariable("id") Long id, Model model, @ModelAttribute("product")Product Product) {
+	public String showProduct(@PathVariable("id") Long id, Model model, @ModelAttribute("product")Product product) {
 		model.addAttribute("product", pcservice.findProduct(id));
 		List<Category> categories = pcservice.getCategories();
 		model.addAttribute("categories", categories);
@@ -77,21 +77,24 @@ public class PCController {
 		pcservice.updateProduct(product);
 		return "redirect:/";
 	}
-	/*@RequestMapping(path="/product/{id}", method = RequestMethod.GET)
-	public String addCategory(@ModelAttribute("product")Product product, Model model) {
-		List<Category> categories = pcservice.getCategories();
-		model.addAttribute("categories", categories);
-		return "/product/showproduct.jsp";
-	}
-	/*@RequestMapping("/category/{id}")
-	public String showCategory(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("category", pcservice.findCategory(id));
-		return "/product/showproduct.jsp";
-	}
 	@RequestMapping("/category/{id}")
-	public String addProduct(@ModelAttribute("category")Category category, Model model) {
+	public String showCategory(@PathVariable("id") Long id, Model model, @ModelAttribute("category")Category category) {
+		model.addAttribute("category", pcservice.findCategory(id));
 		List<Product> products = pcservice.getProducts();
 		model.addAttribute("products", products);
 		return "/category/showcategory.jsp";
-	}*/
+	}
+	@PostMapping("/category/{id}")
+	public String attachproduct(@RequestParam("products")Long pId, @PathVariable("id") Long id) {
+		//get category
+		Category category = pcservice.findCategory(id);
+		//get product
+		List<Product> productsc = category.getProducts();
+		//set product
+		Product productId = pcservice.findProduct(pId);
+		productsc.add(productId);
+		//update category with product
+		pcservice.updateCategory(category);
+		return "redirect:/";
+	}
 }
