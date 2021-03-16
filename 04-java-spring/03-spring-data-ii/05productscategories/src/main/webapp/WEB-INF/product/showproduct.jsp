@@ -24,11 +24,14 @@
 				<tr>
 					<td>${ product.description}</td>
 					<td>${ product.price}</td>
-					<td>${ product.categories}</td>
+					<td><c:forEach items="${product.categories}" var="cat">
+						<c:out value="${cat.name}"/>
+						</c:forEach>
+					</td>
 				</tr>
 			</tbody>
 		</table>
-		<form action="/product/{product.id}" method ="POST">
+		<form action="/product/${product.id}" method ="POST">
         <label for="categories">Choose a category:</label>
 		<select id="category" name="categories">
 		  	<c:forEach items="${ categories }" var="c">

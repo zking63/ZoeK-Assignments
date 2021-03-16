@@ -28,6 +28,10 @@
 					<td>${ p.description }</td>
 					<td>${ p.price }</td>
 					<td>${ p.id }</td>
+					<td><c:forEach items="${p.categories}" var="cat">
+						<c:out value="${cat.name}"/>
+						</c:forEach>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
