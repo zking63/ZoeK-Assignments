@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.productscategories.models.Category;
 import com.codingdojo.productscategories.models.Product;
@@ -43,7 +45,7 @@ public class PCController {
 	}
 	@RequestMapping("/category/new")
 	public String newCategory(@ModelAttribute("category")Category category) {
-		return "/product/newcategory.jsp";
+		return "/category/newcategory.jsp";
 	}
 	@RequestMapping(value="/category", method=RequestMethod.POST)
 	public String createCategory(@Valid @ModelAttribute("category") Category category, BindingResult result) {
@@ -55,18 +57,33 @@ public class PCController {
 			return "redirect:/";
 		}
 	}
-	/*@RequestMapping("/product/{id}")
-	public String showProduct(@PathVariable("id") Long id, Model model) {
+	@RequestMapping("/product/{id}")
+	public String showProduct(@PathVariable("id") Long id, Model model, @ModelAttribute("product")Product Product) {
 		model.addAttribute("product", pcservice.findProduct(id));
+		List<Category> categories = pcservice.getCategories();
+		model.addAttribute("categories", categories);
 		return "/product/showproduct.jsp";
 	}
-	@RequestMapping("/product/{id}")
+	@PostMapping("/product/{id}")
+	public String attachcategory(@RequestParam("categories")Long catId, @PathVariable("id") Long id) {
+		//get product
+		Product product = pcservice.findProduct(id);
+		//get category
+		List<Category> categoriesp = product.getCategories();
+		//set category
+		Category categoryId = pcservice.findCategory(catId);
+		categoriesp.add(categoryId);
+		//update product with category
+		pcservice.updateProduct(product);
+		return "redirect:/";
+	}
+	/*@RequestMapping(path="/product/{id}", method = RequestMethod.GET)
 	public String addCategory(@ModelAttribute("product")Product product, Model model) {
 		List<Category> categories = pcservice.getCategories();
 		model.addAttribute("categories", categories);
 		return "/product/showproduct.jsp";
 	}
-	@RequestMapping("/category/{id}")
+	/*@RequestMapping("/category/{id}")
 	public String showCategory(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("category", pcservice.findCategory(id));
 		return "/product/showproduct.jsp";

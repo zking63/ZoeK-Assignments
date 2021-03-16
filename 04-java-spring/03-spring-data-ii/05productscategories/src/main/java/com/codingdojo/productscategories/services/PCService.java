@@ -26,6 +26,9 @@ public class PCService {
 	public Product createProduct(Product p) {
 		return prepo.save(p);
 	}
+	public Product updateProduct(Product p) {
+		return prepo.save(p);
+	}
 	public Category createCategory(Category c) {
 		return crepo.save(c);
 	}

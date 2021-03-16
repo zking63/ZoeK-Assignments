@@ -10,33 +10,32 @@
 	<title>New product</title>
 </head>
 <body>
-	<h1>Add a new product</h1>
-	<form:form action="/product" method="POST" modelAttribute="product">
-		<div class="form-group">
-	        <form:label path="product">Product</form:label>
-	        <form:errors path="product"/>
-	        <form:select class="form-control" path="product">
-	        <c:forEach items="${ product }" var="p">
-	        	<form:option value="${ d.id }">${ d.name }</form:option>
+	<h1>View a new product</h1>
+		<h1>${product.name}</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Description</th>
+					<th>Price</th>	
+					<th>Category</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>${ product.description}</td>
+					<td>${ product.price}</td>
+					<td>${ product.categories}</td>
+				</tr>
+			</tbody>
+		</table>
+		<form action="/product/{product.id}" method ="POST">
+        <label for="categories">Choose a category:</label>
+		<select id="category" name="categories">
+		  	<c:forEach items="${ categories }" var="c">
+	        	<option value="${ c.id }">${ c.name }</option>
 	        </c:forEach>
-	        </form:select>
-	    </div>
-	    <div>
-	        <form:label path="firstName">First Name</form:label>
-	        <form:errors path="firstName"/>
-	        <form:input class="form-control" path="firstName"/>
-	    </div>
-	   	<div>
-	        <form:label path="lastName">Last Name</form:label>
-	        <form:errors path="lastName"/>
-	        <form:input class="form-control" path="lastName"/>
-	    </div>
-	   	<div>
-	        <form:label path="age">Age</form:label>
-	        <form:errors path="age"/>
-	        <form:input class="form-control" path="age"/>
-	    </div>
-	    <input type="submit" value="Submit"/>
-    </form:form>
+		</select>
+		<input type="submit" value="Submit"/>
+		</form>
 </body>
 </html>
