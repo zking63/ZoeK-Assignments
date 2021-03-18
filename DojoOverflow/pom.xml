@@ -8,10 +8,10 @@
 		<version>2.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.codingdojo.05productscategories</groupId>
-	<artifactId>05productscategories</artifactId>
+	<groupId>com.codingdojo.DojoOverflow</groupId>
+	<artifactId>DojoOverflow</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>05productscategories</name>
+	<name>DojoOverflow</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -37,7 +37,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+				<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
 		    <scope>runtime</scope>
