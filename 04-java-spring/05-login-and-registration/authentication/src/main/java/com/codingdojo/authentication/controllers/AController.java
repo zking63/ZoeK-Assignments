@@ -37,7 +37,9 @@ public class AController {
 	 }
      // else, save the user in the database, save the user id in session, and redirect them to the /home route
 	 User newUser = userService.registerUser(user);
+	 //setting user in session
 	 session.setAttribute("user_id", newUser.getId());
+	 //returning to home
 	 return "redirect:/home";
  }
  
@@ -49,6 +51,18 @@ public class AController {
  
  @RequestMapping("/home")
  public String home(HttpSession session, Model model) {
+	 //only open for users
+	 if (session.getAttribute("user_id") == null) {
+		 return "redirect:/";
+	 }
+	 //show email on homepage
+	 //cast user_id into long
+	 Long userId = (Long) session.getAttribute("user_id");
+	 //find user by the userId
+	 User u = userService.findUserById(userId);
+	 //add user to homepage
+	 model.addAttribute("user", u);
+	 //return homepage
      return "homePage.jsp";
  }
  /*@RequestMapping("/logout")
