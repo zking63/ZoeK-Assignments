@@ -14,9 +14,14 @@ public class UserService {
     }
     
 // register user and hash their password
+//BCrypt scrambles the pw and saves it as the scrambled pw
+    //BCrypt uses salt (set of random characters that go on end of pw)
     public User registerUser(User user) {
+    	//generate hash with BCrypt
         String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+        //use setter replace original pw with the hashed string
         user.setPassword(hashed);
+        //save new pw to the database
         return urepo.save(user);
     }
     
