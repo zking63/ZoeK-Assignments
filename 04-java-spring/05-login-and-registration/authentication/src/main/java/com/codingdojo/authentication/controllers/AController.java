@@ -13,13 +13,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.authentication.models.User;
 import com.codingdojo.authentication.services.UserService;
+import com.codingdojo.authentication.validators.UserValidation;
 
 @Controller
 public class AController {
  private final UserService userService;
+ private final UserValidation uservalidator;
  
- public AController(UserService userService) {
+ public AController(UserService userService, UserValidation uservalidator) {
      this.userService = userService;
+     this.uservalidator = uservalidator;
  }
  
  @RequestMapping("/registration")
@@ -32,8 +35,10 @@ public class AController {
  }
  
  @RequestMapping(value="/registration", method=RequestMethod.POST)
- public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {	 
-     // if result has errors, return the registration page (don't worry about validations just now)
+ public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {	
+	 //validate the passwords - call on validation, use validate method, take in user to validate it, take in result append any errors to the result to include that to the errors check below
+	 uservalidator.validate(user, result);
+     // if result has errors, return the registration page
 	 if (result.hasErrors()) {
 		 return "registrationPage.jsp";
 	 }
@@ -68,7 +73,7 @@ public class AController {
 		 return "redirect:/login";
 	 }
 	 //show email on homepage
-	 //cast user_id into long
+	 //cast user_id into long - always have to typecast session
 	 Long userId = (Long) session.getAttribute("user_id");
 	 //find user by the userId
 	 User u = userService.findUserById(userId);
