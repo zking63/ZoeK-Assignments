@@ -51,7 +51,7 @@ public class AController {
 	 boolean isAuthenticated = userService.authenticateUser(email, password);
 	 if(isAuthenticated) {
 		 User u = userService.findByEmail(email);
-		 session.setAttribute("userid", u.getId());
+		 session.setAttribute("user_id", u.getId());
 		 return "redirect:/home";
 	 }
      // else, add error messages and return the login page
@@ -65,7 +65,7 @@ public class AController {
  public String home(HttpSession session, Model model) {
 	 //only open for users
 	 if (session.getAttribute("user_id") == null) {
-		 return "redirect:/";
+		 return "redirect:/login";
 	 }
 	 //show email on homepage
 	 //cast user_id into long
@@ -77,9 +77,11 @@ public class AController {
 	 //return homepage
      return "homePage.jsp";
  }
- /*@RequestMapping("/logout")
+ @RequestMapping("/logout")
  public String logout(HttpSession session) {
      // invalidate session
+	 session.invalidate();
      // redirect to login page
- }*/
+	 return "redirect:/login";
+ }
 }
