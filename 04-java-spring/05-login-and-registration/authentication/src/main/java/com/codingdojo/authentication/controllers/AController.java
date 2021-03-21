@@ -9,6 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.codingdojo.authentication.models.User;
 import com.codingdojo.authentication.services.UserService;
 
@@ -43,11 +45,21 @@ public class AController {
 	 return "redirect:/home";
  }
  
- /*@RequestMapping(value="/login", method=RequestMethod.POST)
+ @RequestMapping(value="/login", method=RequestMethod.POST)
  public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpSession session) {
      // if the user is authenticated, save their user id in session
+	 boolean isAuthenticated = userService.authenticateUser(email, password);
+	 if(isAuthenticated) {
+		 User u = userService.findByEmail(email);
+		 session.setAttribute("userid", u.getId());
+		 return "redirect:/home";
+	 }
      // else, add error messages and return the login page
- }*/
+	 else {
+		 model.addAttribute("error", "Invalid credentials please try again.");
+		 return "loginPage.jsp";
+	 }
+ }
  
  @RequestMapping("/home")
  public String home(HttpSession session, Model model) {
