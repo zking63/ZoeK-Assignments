@@ -12,6 +12,7 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -20,10 +21,21 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@NotEmpty
+	private String firstName;
+	@NotEmpty
+	private String lastName;
+	@NotEmpty
+	private String city;
+	@NotEmpty
+	private String state;
+	@NotEmpty
 	@Email(message="Must be a valid email.")
 	private String email;
+	@NotEmpty
 	@Size(min=5, message="Password must be at least 5 characters.")
 	private String password;
+	@NotEmpty
 	@Transient
 	private String passwordConfirmation;
 	@Column(updatable=false)
@@ -64,6 +76,38 @@ public class User {
 
 	public void setPasswordConfirmation(String passwordConfirmation) {
 		this.passwordConfirmation = passwordConfirmation;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	public Date getCreatedAt() {
