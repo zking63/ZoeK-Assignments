@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
     
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,7 @@
     <title>Login Page</title>
 </head>
 <body>
-	<div class="register" display=inline-block>
+	<div class="register">
 		<h1>Register!</h1>
 	    
 	    <p><form:errors path="user.*"/></p>
@@ -46,10 +47,10 @@
 	        <input type="submit" value="Register!"/>
 	    </form:form>
 	</div>
-	<div class="login" display=inline-block>
+	<div class="login">
 		<h1>Login</h1>
-	    <p><c:out value="${error}" /></p>
-	    <form method="post" action="/">
+	    <p><c:out value="${ error }" /></p>
+	    <form method="post" action="/login">
 	        <p>
 	            <label type="email" for="email">Email</label>
 	            <input type="text" id="email" name="email"/>
