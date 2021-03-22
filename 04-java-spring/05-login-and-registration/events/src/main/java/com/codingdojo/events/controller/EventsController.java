@@ -14,11 +14,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codingdojo.events.models.User;
 import com.codingdojo.events.services.UserService;
+import com.codingdojo.events.validation.UserValidation;
 
 @Controller
 public class EventsController {
 	@Autowired
 	private UserService uservice;
+	@Autowired
+	private UserValidation uvalidation;
 	
 	@RequestMapping("/")
 	public String index(@ModelAttribute("user")User user) {
@@ -26,6 +29,7 @@ public class EventsController {
 	}
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
+		uvalidation.validate(user, result);
 		if (result.hasErrors()) {
 			return "loginreg.jsp";
 		}
