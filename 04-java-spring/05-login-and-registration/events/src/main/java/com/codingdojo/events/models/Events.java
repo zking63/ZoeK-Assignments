@@ -84,7 +84,7 @@ public class Events {
 		this.eventDate = eventDate;
 	}
     public String getEventDateFormatted() {
-    	SimpleDateFormat df = new SimpleDateFormat("dd,MM,YYYY");
+    	SimpleDateFormat df = new SimpleDateFormat("MMMM, dd, YYYY");
     	return df.format(this.eventDate);
     }
 	public Date getCreatedAt() {

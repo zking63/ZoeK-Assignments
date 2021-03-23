@@ -27,8 +27,8 @@
 				<tr>
 					<td>${ e.name }</td>
 					<td>${ e.eventState }</td>
-					<td>${ e.eventDate }</td>
-					<td>${ e.planner.firstName }</td>
+					<td>${ e.getEventDateFormatted() }</td>
+					<td>${ e.planner.getFirstName() }</td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -48,7 +48,7 @@
 	        </p>
 	        <p>
 	            <form:label path="eventDate">Date:</form:label>
-	            <form:input type="eventDate" path="eventDate"/>
+	            <form:input type="eventDate" value="${dateFormat}" path="eventDate"/>
 	        </p>
 	        <input type="submit" value="Create!"/>
 	    </form:form>

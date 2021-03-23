@@ -1,5 +1,8 @@
 package com.codingdojo.events.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -62,6 +65,10 @@ public class EventsController {
 			return null;
 		return (Long)session.getAttribute("user_id");
 	}
+	private String dateFormat() {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		return df.format(new Date());
+	}
 	 @RequestMapping("/home")
 	 public String EventsPage(@ModelAttribute("event") Events event, Model model, HttpSession session) {
 		 Long user_id = this.userSessionId(session);
@@ -72,6 +79,7 @@ public class EventsController {
 		 model.addAttribute("user", user);
 		 model.addAttribute("usersStates", this.eservice.allEventsWithState(user.getState()));
 		 model.addAttribute("otherStates", this.eservice.allEventsWithoutState(user.getState()));
+		 model.addAttribute("dateFormat", dateFormat());
 		 return "events.jsp";
 	 }
 	 @RequestMapping(value="/home", method=RequestMethod.POST)
