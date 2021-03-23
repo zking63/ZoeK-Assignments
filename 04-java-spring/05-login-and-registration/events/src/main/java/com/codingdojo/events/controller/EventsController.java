@@ -70,6 +70,19 @@ public class EventsController {
 		 }
 		 User user = uservice.findUserbyId(user_id);
 		 model.addAttribute("user", user);
+		 model.addAttribute("usersStates", this.eservice.allEventsWithState(user.getState()));
+		 model.addAttribute("otherStates", this.eservice.allEventsWithoutState(user.getState()));
 		 return "events.jsp";
+	 }
+	 @RequestMapping(value="/home", method=RequestMethod.POST)
+	 public String CreateEvent(@Valid @ModelAttribute("event") Events event, BindingResult result, Model model, HttpSession session) {
+		 Long user_id = this.userSessionId(session);
+		 User user = uservice.findUserbyId(user_id);
+		 model.addAttribute("user", user);
+		 if (result.hasErrors()) {
+			 return "redirect:/home";
+		 }
+		 eservice.createEvent(event);
+		 return "redirect:/";
 	 }
 }

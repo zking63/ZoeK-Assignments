@@ -19,14 +19,16 @@
 	            <th>Name</th>
 	            <th>State</th>
 	            <th>Date</th>
+	            <th>Host</th>
 	        </tr>
 	    </thead>
 		<tbody>
-			<c:forEach items="${ events }" var="e">
+			<c:forEach items="${ usersStates }" var="e">
 				<tr>
 					<td>${ e.name }</td>
 					<td>${ e.eventState }</td>
 					<td>${ e.eventDate }</td>
+					<td>${ e.planner.firstName }</td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -35,6 +37,7 @@
 	<div class="new event">
 		<h1>Create an event</h1>
 	    <form:form method="POST" action="/home" modelAttribute="event">
+	    	<form:hidden value="${ user.id }" path="planner"/>
 	    	<p>
 	            <form:label path="name">Name:</form:label>
 	            <form:input type="name" path="name"/>
