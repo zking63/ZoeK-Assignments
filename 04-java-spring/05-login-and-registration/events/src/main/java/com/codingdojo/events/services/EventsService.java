@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.codingdojo.events.models.Events;
-import com.codingdojo.events.models.User;
 import com.codingdojo.events.repositories.EventRepo;
 
 @Service

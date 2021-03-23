@@ -12,8 +12,8 @@
 <body>
 	<h1>Hello, ${ user.firstName }</h1>
 	<div class="events">
-		<h1>Events</h1>
-			<table>
+	<h1>Events</h1>
+	<table>
 	    <thead>
 	        <tr>
 	            <th>Name</th>
@@ -29,6 +29,26 @@
 					<td>${ e.eventState }</td>
 					<td>${ e.getEventDateFormatted() }</td>
 					<td>${ e.planner.getFirstName() }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	<table>
+	    <thead>
+	        <tr>
+	            <th>Name</th>
+	            <th>State</th>
+	            <th>Date</th>
+	            <th>Host</th>
+	        </tr>
+	    </thead>
+		<tbody>
+			<c:forEach items="${ otherStates }" var="s">
+				<tr>
+					<td>${ s.name }</td>
+					<td>${ s.eventState }</td>
+					<td>${ s.getEventDateFormatted() }</td>
+					<td>${ s.planner.getFirstName() }</td>
 				</tr>
 			</c:forEach>
 		</tbody>
