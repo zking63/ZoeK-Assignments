@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -37,13 +38,16 @@ public class Events {
 	@Column(updatable=false)
 	private Date createdAt;
 	private Date updatedAt;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private User planner;
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
 	        name = "events_users", 
 	        joinColumns = @JoinColumn(name = "event_id"), 
 	        inverseJoinColumns = @JoinColumn(name = "user_id")
 			)
-	private List<User> hosts;
+	private List<User> attendees;
 	public Events() {
 		
 	}
@@ -95,11 +99,17 @@ public class Events {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	public List<User> getHosts() {
-		return hosts;
+	public List<User> getAttendees() {
+		return attendees;
 	}
-	public void setHosts(List<User> hosts) {
-		this.hosts = hosts;
+	public void setAttendees(List<User> attendees) {
+		this.attendees = attendees;
+	}
+	public User getPlanner() {
+		return planner;
+	}
+	public void setPlanner(User planner) {
+		this.planner = planner;
 	}
 	
 }
