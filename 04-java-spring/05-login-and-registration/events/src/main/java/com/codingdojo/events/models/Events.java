@@ -1,5 +1,6 @@
 package com.codingdojo.events.models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -78,6 +79,10 @@ public class Events {
 	public void setEventDate(Date eventDate) {
 		this.eventDate = eventDate;
 	}
+    public String getEventDateFormatted() {
+    	SimpleDateFormat df = new SimpleDateFormat("dd,MM,YYYY");
+    	return df.format(this.eventDate);
+    }
 	public Date getCreatedAt() {
 		return createdAt;
 	}
