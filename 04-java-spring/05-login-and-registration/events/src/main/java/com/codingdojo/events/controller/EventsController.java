@@ -1,5 +1,6 @@
 package com.codingdojo.events.controller;
 
+import java.awt.Event;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -91,6 +95,51 @@ public class EventsController {
 			 return "redirect:/home";
 		 }
 		 eservice.createEvent(event);
-		 return "redirect:/";
+		 return "redirect:/home";
+	 }
+	 @RequestMapping("/{id}")
+	 public String show(@PathVariable("id") Long id, Model model, HttpSession session, @ModelAttribute("event")Events event) {
+		 Long user_id = this.userSessionId(session);
+		 User user = uservice.findUserbyId(user_id);
+		 if (user_id == null) {
+			 return "redirect:/";
+		 }
+		 model.addAttribute("event", eservice.findbyId(id));
+		 model.addAttribute("user", user);
+		 return "show.jsp";
+	 }
+	@RequestMapping("/delete/{id}")
+	public String Delete(@PathVariable("id") Long id) {
+		this.eservice.delete(id);
+		return "redirect:/home";
+	}
+	@RequestMapping(value="/edit/{id}")
+	public String Edit(@PathVariable("id") Long id, HttpSession session, Model model) {
+		Long user_id = this.userSessionId(session);
+		User user = uservice.findUserbyId(user_id);
+		Events event = eservice.findbyId(id);
+		if (user_id == null) {
+			return "redirect:/";
+		}
+		if (event == null || user_id != event.getPlanner().getId()) {
+			return "redirect:/home";
+		}
+		else {
+			model.addAttribute("event", event);
+			model.addAttribute("user", user);
+			eservice.createEvent(event);
+			return "edit.jsp";
+		}
+	}
+	 @RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
+	 public String Update(@Valid @ModelAttribute("event") Events event, BindingResult result, Model model, HttpSession session) {
+		 Long user_id = this.userSessionId(session);
+		 User user = uservice.findUserbyId(user_id);
+		 model.addAttribute("user", user);
+		 if (result.hasErrors()) {
+			 return "redirect:/home";
+		 }
+		 eservice.createEvent(event);
+		 return "redirect:/home";
 	 }
 }

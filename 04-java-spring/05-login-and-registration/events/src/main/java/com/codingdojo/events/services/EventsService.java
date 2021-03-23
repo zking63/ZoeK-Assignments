@@ -22,4 +22,10 @@ public class EventsService {
 	public List<Events> allEventsWithoutState(String state) {
 		return erepo.findByeventStateIsNot(state);
 	}
+	public Events findbyId(Long id) {
+		return erepo.findById(id).orElse(null);
+	}
+	public void delete(Long id) {
+		erepo.deleteById(id);
+	}
 }

@@ -12,7 +12,7 @@
 <body>
 	<h1>Hello, ${ user.firstName }</h1>
 	<div class="events">
-	<h1>Events</h1>
+	<h2>Events in your state</h2>
 	<table>
 	    <thead>
 	        <tr>
@@ -20,19 +20,44 @@
 	            <th>State</th>
 	            <th>Date</th>
 	            <th>Host</th>
+	            <th>Action/Status</th>
 	        </tr>
 	    </thead>
 		<tbody>
 			<c:forEach items="${ usersStates }" var="e">
 				<tr>
-					<td>${ e.name }</td>
+					<td><a href="/${e.id}">${ e.name }</a></td>
 					<td>${ e.eventState }</td>
 					<td>${ e.getEventDateFormatted() }</td>
 					<td>${ e.planner.getFirstName() }</td>
+					<td>
+						<c:choose>
+							<c:when test="${ e.planner.id == user.id }">
+								<a href="/edit/${ e.id }">Edit</a> |
+								<form action="/delete/${ e.id }" method="post">
+									<input type="hidden" value="delete" />
+									<button>Delete</button>
+								</form>
+							</c:when>
+							<c:otherwise>
+								<c:choose>
+									<c:when test="${ e.attendees.contains(user) }">
+										<span>Joining <a href="/events/${ e.id }/a/cancel">Cancel</a></span>
+									</c:when>
+									<c:otherwise>
+										<a href="/{ event.id }/a/join">Join</a>								
+									</c:otherwise>
+								</c:choose>
+							</c:otherwise>
+						</c:choose>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
-	</table>
+		</table>
+	</div>
+	<div class="events">
+	<h2>Events in other states</h2>
 	<table>
 	    <thead>
 	        <tr>
@@ -40,15 +65,37 @@
 	            <th>State</th>
 	            <th>Date</th>
 	            <th>Host</th>
+	            <th>Action/Status</th>
 	        </tr>
 	    </thead>
 		<tbody>
 			<c:forEach items="${ otherStates }" var="s">
 				<tr>
-					<td>${ s.name }</td>
+					<td><a href="/${s.id}">${ s.name }</a></td>
 					<td>${ s.eventState }</td>
 					<td>${ s.getEventDateFormatted() }</td>
 					<td>${ s.planner.getFirstName() }</td>
+					<td>
+						<c:choose>
+							<c:when test="${ s.planner.id == user.id }">
+								<a href="/edit/${ s.id }">Edit</a> |
+								<form action="/delete/${ s.id }" method="post">
+									<input type="hidden" value="delete" />
+									<button>Delete</button>
+								</form>
+							</c:when>
+							<c:otherwise>
+								<c:choose>
+									<c:when test="${ s.attendees.contains(user) }">
+										<span>Joining <a href="/events/${ s.id }/a/cancel">Cancel</a></span>
+									</c:when>
+									<c:otherwise>
+										<a href="/{ event.id }/a/join">Join</a>								
+									</c:otherwise>
+								</c:choose>
+							</c:otherwise>
+						</c:choose>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
