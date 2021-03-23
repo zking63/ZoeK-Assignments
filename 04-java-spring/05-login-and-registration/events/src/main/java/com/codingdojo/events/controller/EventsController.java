@@ -5,6 +5,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.codingdojo.events.models.Events;
 import com.codingdojo.events.models.User;
+import com.codingdojo.events.services.EventsService;
 import com.codingdojo.events.services.UserService;
 import com.codingdojo.events.validation.UserValidation;
 
@@ -22,6 +25,8 @@ public class EventsController {
 	private UserService uservice;
 	@Autowired
 	private UserValidation uvalidation;
+	@Autowired
+	private EventsService eservice;
 	
 	@RequestMapping("/")
 	public String index(@ModelAttribute("user")User user) {
@@ -51,5 +56,20 @@ public class EventsController {
 			 redirs.addFlashAttribute("error", "Invalid Email/Password");
 			 return "redirect:/";
 		 }
+	 }
+	public Long userSessionId(HttpSession session) {
+		if(session.getAttribute("user_id") == null)
+			return null;
+		return (Long)session.getAttribute("user_id");
+	}
+	 @RequestMapping("/home")
+	 public String EventsPage(@ModelAttribute("event") Events event, Model model, HttpSession session) {
+		 Long user_id = this.userSessionId(session);
+		 if (user_id == null) {
+			 return "redirect:/";
+		 }
+		 User user = uservice.findUserbyId(user_id);
+		 model.addAttribute("user", user);
+		 return "events.jsp";
 	 }
 }

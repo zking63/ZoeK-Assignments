@@ -10,6 +10,7 @@
     <title>Event page</title>
 </head>
 <body>
+	<h1>Hello, ${ user.firstName }</h1>
 	<div class="events">
 		<h1>Events</h1>
 			<table>
@@ -33,7 +34,7 @@
 	</div>
 	<div class="new event">
 		<h1>Create an event</h1>
-	    <form:form method="POST" action="/" modelAttribute="event">
+	    <form:form method="POST" action="/home" modelAttribute="event">
 	    	<p>
 	            <form:label path="name">Name:</form:label>
 	            <form:input type="name" path="name"/>
