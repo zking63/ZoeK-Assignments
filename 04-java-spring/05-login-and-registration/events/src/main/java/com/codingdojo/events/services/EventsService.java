@@ -33,7 +33,7 @@ public class EventsService {
 	public void delete(Long id) {
 		erepo.deleteById(id);
 	}
-	public Messages comment(User user, Events event, String comment) {
+	public Messages makeComment(User user, Events event, String comment) {
 		Messages message = new Messages(user, event, comment);
 		return this.mrepo.save(message);
 	}

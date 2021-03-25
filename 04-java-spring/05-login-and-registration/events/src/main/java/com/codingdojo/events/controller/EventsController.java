@@ -1,6 +1,5 @@
 package com.codingdojo.events.controller;
 
-import java.awt.Event;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codingdojo.events.models.Events;
+import com.codingdojo.events.models.Messages;
 import com.codingdojo.events.models.User;
 import com.codingdojo.events.services.EventsService;
 import com.codingdojo.events.services.UserService;
@@ -106,6 +106,7 @@ public class EventsController {
 		 }
 		 model.addAttribute("event", eservice.findbyId(id));
 		 model.addAttribute("user", user);
+		 model.addAttribute("comments", eservice.findbyId(id).getEventComments());
 		 return "show.jsp";
 	 }
 	@RequestMapping("/delete/{id}")
@@ -169,5 +170,19 @@ public class EventsController {
 		//update event without attendee
 		eservice.createEvent(event);
 		return "redirect:/home";
+	}
+	@PostMapping("/{id}/comment")
+	public String addComment(@PathVariable("id")Long id, HttpSession session, @RequestParam("comment")String comment, Model model ) {
+		Long user_id = this.userSessionId(session);
+		User user = uservice.findUserbyId(user_id);
+		Events event = eservice.findbyId(id);
+		if (user_id == null) {
+			return "redirect:/";
+		}
+		if (comment.equals("")) {
+			return "redirect:/{id}";
+		}
+		eservice.makeComment(user, event, comment);
+		return "redirect:/{id}";
 	}
 }
