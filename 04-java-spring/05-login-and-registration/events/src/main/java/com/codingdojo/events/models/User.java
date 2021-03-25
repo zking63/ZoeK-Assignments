@@ -49,6 +49,8 @@ public class User {
 	private Date updatedAt;
     @OneToMany(fetch=FetchType.LAZY, mappedBy="planner")
     private List<Events> eventsPlanned;
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="commenter")
+    private List<Messages> commentsMade;
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(
 		name="events_users",
@@ -155,6 +157,15 @@ public class User {
 
 	public void setEventsAttending(List<Events> eventsAttending) {
 		this.eventsAttending = eventsAttending;
+	}
+	
+
+	public List<Messages> getCommentsMade() {
+		return commentsMade;
+	}
+
+	public void setCommentsMade(List<Messages> commentsMade) {
+		this.commentsMade = commentsMade;
 	}
 
 	@PrePersist

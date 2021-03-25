@@ -114,5 +114,12 @@ public class Events {
 	public void setPlanner(User planner) {
 		this.planner = planner;
 	}
+	public List<Messages> getEventComments() {
+		return eventComments;
+	}
+	public void setEventComments(List<Messages> eventComments) {
+		this.eventComments = eventComments;
+	}
+	
 	
 }
