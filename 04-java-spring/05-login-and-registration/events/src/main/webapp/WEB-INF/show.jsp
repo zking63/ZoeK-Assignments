@@ -11,6 +11,8 @@
 </head>
 <body>
 	<h1>Hello, ${ user.firstName }. Welcome to ${ event.name }.</h1>
+	<button><a href="/logout">Logout</a></button>
+	<button><a href="/home">Home</a></button>
 	<h2>Event details</h2>
 	<table>
 	    <thead>

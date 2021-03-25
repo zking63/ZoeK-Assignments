@@ -11,6 +11,7 @@
 </head>
 <body>
 	<h1>Hello, ${ user.firstName }</h1>
+	<button><a href="/logout">Logout</a></button>
 	<div class="events">
 	<h2>Events in your state</h2>
 	<table>

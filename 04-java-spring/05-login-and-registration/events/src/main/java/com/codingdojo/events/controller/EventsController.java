@@ -64,6 +64,13 @@ public class EventsController {
 			 return "redirect:/";
 		 }
 	 }
+	 @RequestMapping("/logout")
+	 public String logout(HttpSession session) {
+	     // invalidate session
+		 session.invalidate();
+	     // redirect to login page
+		 return "redirect:/";
+	 }
 	public Long userSessionId(HttpSession session) {
 		if(session.getAttribute("user_id") == null)
 			return null;
