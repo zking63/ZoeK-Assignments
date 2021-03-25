@@ -3,6 +3,7 @@ package com.codingdojo.events.controller;
 import java.awt.Event;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -142,4 +144,32 @@ public class EventsController {
 		 eservice.createEvent(event);
 		 return "redirect:/home";
 	 }
+	/*@PostMapping("/{id}/a/join")
+	public String attendees(@PathVariable("id") Long id, HttpSession session) {
+		Long user_id = this.userSessionId(session);
+		//get event
+		Events event = eservice.findbyId(id);
+		//get attendees
+		List<User> attendees = event.getAttendees();
+		//set attendee
+		User attendee = uservice.findUserbyId(user_id);
+		attendees.add(attendee);
+		//update event with attendee
+		eservice.createEvent(event);
+		return "redirect:/home";
+	}
+	@PostMapping("/{id}/a/cancel")
+	public String removeAttendees(@PathVariable("id") Long id, HttpSession session) {
+		Long user_id = this.userSessionId(session);
+		//get event
+		Events event = eservice.findbyId(id);
+		//get attendees
+		List<User> attendees = event.getAttendees();
+		//set attendee
+		User attendee = uservice.findUserbyId(user_id);
+		attendees.remove(attendee);
+		//update event without attendee
+		eservice.createEvent(event);
+		return "redirect:/home";
+	}*/
 }

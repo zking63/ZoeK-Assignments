@@ -42,10 +42,17 @@
 							<c:otherwise>
 								<c:choose>
 									<c:when test="${ e.attendees.contains(user) }">
-										<span>Joining <a href="/events/${ e.id }/a/cancel">Cancel</a></span>
+										<span>Joining</span>
+										<form action="/${ e.id }/a/cancel" method="post">
+											<input type="hidden" value="cancel" />
+											<button>Cancel</button>
+										</form>	
 									</c:when>
 									<c:otherwise>
-										<a href="/{ event.id }/a/join">Join</a>								
+										<form action="/${ e.id }/a/join" method="post">
+											<input type="hidden" value="join" />
+											<button>Join</button>
+										</form>							
 									</c:otherwise>
 								</c:choose>
 							</c:otherwise>
@@ -87,10 +94,17 @@
 							<c:otherwise>
 								<c:choose>
 									<c:when test="${ s.attendees.contains(user) }">
-										<span>Joining <a href="/events/${ s.id }/a/cancel">Cancel</a></span>
+										<span>Joining</span>
+										<form action="/${ s.id }/a/cancel" method="post">
+											<input type="hidden" value="cancel" />
+											<button>Cancel</button>
+										</form>	
 									</c:when>
 									<c:otherwise>
-										<a href="/{ event.id }/a/join">Join</a>								
+										<form action="/${ s.id }/a/join" method="post">
+											<input type="hidden" value="join" />
+											<button>Join</button>
+										</form>							
 									</c:otherwise>
 								</c:choose>
 							</c:otherwise>

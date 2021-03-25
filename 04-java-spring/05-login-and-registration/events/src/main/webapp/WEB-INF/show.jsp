@@ -18,6 +18,7 @@
 	            <th>State</th>
 	            <th>Date</th>
 	            <th>Host</th>
+	            <th>Attendees (${ event.attendees.size() })</th>
 	        </tr>
 	    </thead>
 		<tbody>
@@ -25,6 +26,11 @@
 				<td>${ event.eventState }</td>
 				<td>${ event.getEventDateFormatted() }</td>
 				<td>${ event.planner.getFirstName() }</td>
+				<td>
+				<c:forEach items="${ event.attendees }" var="e">
+				${ e.firstName } 
+				</c:forEach>
+				</td>
 			</tr>
 		</tbody>
 	</table>
