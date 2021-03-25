@@ -34,17 +34,18 @@
 			</tr>
 		</tbody>
 	</table>
-		<div class="newcomment">
-		<h1>Comment</h1>
-		<form:form method="POST" action="/{id}/comment" modelAttribute="message">
-	    	<form:hidden value="${ user.id }" path="commenter"/>
-	    	<form:hidden value="${ event.id }" path="eventComment"/>
-	        <p>
-	            <form:label path="comment">Write your comment</form:label>
-	            <form:input type="text" path="comment"/>
-	        </p>
-	        <input type="hidden" value="Create!"/>
-	    </form:form>
+	<div class="comments">
+		<h2>Comments</h2>
+		<p><c:forEach items="${ event.eventComments }" var="c">
+			<p>${ c.commenter.getFirstName() }: ${ c.comment }</p>
+		</c:forEach></p>
+	</div>
+	<div class="newcomment">
+		<form method="POST" action="/${event.id}/comment">
+	    	<label for="comment">Add Comment</label>
+			<textarea name="comment" id="comment" class="form-control"></textarea>
+			<button>Submit</button>
+	    </form>
 	</div> 
 </body>
 </html>
