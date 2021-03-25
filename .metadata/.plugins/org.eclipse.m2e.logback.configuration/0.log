@@ -18780,3 +18780,31 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact antlr:antlr:j
 2021-03-25 08:32:17,176 [Worker-347: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-03-25 08:32:17,176 [Worker-347: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2021-03-25 08:32:17,176 [Worker-347: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/zoeking/Documents/CodingDojo/ZoeK-Assignments/04-java-spring/05-login-and-registration/events/src/test/resources
+2021-03-25 08:32:58,470 [Worker-347: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-25 08:32:58,471 [Worker-347: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-03-25 08:32:58,473 [Worker-347: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-03-25 08:32:58,481 [Worker-347: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-03-25 08:32:58,484 [Worker-347: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-25 08:32:58,484 [Worker-347: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-03-25 08:32:58,484 [Worker-347: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/zoeking/Documents/CodingDojo/ZoeK-Assignments/04-java-spring/05-login-and-registration/events/src/test/resources
+2021-03-25 08:34:46,228 [Worker-338: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-25 08:34:46,233 [Worker-338: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-03-25 08:34:46,234 [Worker-338: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-03-25 08:34:46,246 [Worker-338: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-03-25 08:34:46,252 [Worker-338: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-25 08:34:46,252 [Worker-338: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-03-25 08:34:46,253 [Worker-338: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/zoeking/Documents/CodingDojo/ZoeK-Assignments/04-java-spring/05-login-and-registration/events/src/test/resources
+2021-03-25 08:37:09,937 [Worker-336: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-25 08:37:09,938 [Worker-336: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-03-25 08:37:09,938 [Worker-336: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-03-25 08:37:09,946 [Worker-336: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-03-25 08:37:09,947 [Worker-336: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-25 08:37:09,948 [Worker-336: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-03-25 08:37:09,948 [Worker-336: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/zoeking/Documents/CodingDojo/ZoeK-Assignments/04-java-spring/05-login-and-registration/events/src/test/resources
+2021-03-25 08:38:18,849 [Worker-346: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-25 08:38:18,850 [Worker-346: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-03-25 08:38:18,850 [Worker-346: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-03-25 08:38:18,863 [Worker-346: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-03-25 08:38:18,865 [Worker-346: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-25 08:38:18,865 [Worker-346: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-03-25 08:38:18,866 [Worker-346: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/zoeking/Documents/CodingDojo/ZoeK-Assignments/04-java-spring/05-login-and-registration/events/src/test/resources
