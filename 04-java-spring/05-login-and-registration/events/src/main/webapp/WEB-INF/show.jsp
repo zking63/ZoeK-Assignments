@@ -34,5 +34,24 @@
 			</tr>
 		</tbody>
 	</table>
+		<div class="newcomment">
+		<h1>Comment</h1>
+	    <form:form method="POST" action="/home" modelAttribute="event">
+	    	<form:hidden value="${ user.id }" path="planner"/>
+	    	<p>
+	            <form:label path="name">Name:</form:label>
+	            <form:input type="name" path="name"/>
+	        </p>
+	        <p>
+	            <form:label path="eventState">State:</form:label>
+	            <form:input type="eventState" path="eventState"/>
+	        </p>
+	        <p>
+	            <form:label path="eventDate">Date:</form:label>
+	            <form:input type="eventDate" value="${dateFormat}" path="eventDate"/>
+	        </p>
+	        <input type="submit" value="Create!"/>
+	    </form:form>
+	</div> 
 </body>
 </html>

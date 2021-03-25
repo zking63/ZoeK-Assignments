@@ -172,17 +172,17 @@ public class EventsController {
 		return "redirect:/home";
 	}
 	@PostMapping("/{id}/comment")
-	public String addComment(@PathVariable("id")Long id, HttpSession session, @RequestParam("comment")String comment, Model model ) {
+	public String addComment(@PathVariable("id")Long id, HttpSession session, @RequestParam("message")String message, Model model ) {
 		Long user_id = this.userSessionId(session);
 		User user = uservice.findUserbyId(user_id);
 		Events event = eservice.findbyId(id);
 		if (user_id == null) {
 			return "redirect:/";
 		}
-		if (comment.equals("")) {
+		if (message.equals("")) {
 			return "redirect:/{id}";
 		}
-		eservice.makeComment(user, event, comment);
+		eservice.makeComment(user, event, message);
 		return "redirect:/{id}";
 	}
 }
