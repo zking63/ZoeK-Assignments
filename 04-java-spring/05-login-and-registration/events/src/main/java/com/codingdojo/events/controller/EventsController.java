@@ -145,7 +145,7 @@ public class EventsController {
 		 return "redirect:/home";
 	 }
 	@PostMapping("/{id}/a/join")
-	/*public String attendees(@PathVariable("id") Long id, HttpSession session) {
+	public String attendees(@PathVariable("id") Long id, HttpSession session) {
 		Long user_id = this.userSessionId(session);
 		//get event
 		Events event = eservice.findbyId(id);
@@ -158,7 +158,7 @@ public class EventsController {
 		eservice.createEvent(event);
 		return "redirect:/home";
 	}
-	@PostMapping("/{id}/a/cancel")
+	/*@PostMapping("/{id}/a/cancel")
 	public String removeAttendees(@PathVariable("id") Long id, HttpSession session) {
 		Long user_id = this.userSessionId(session);
 		//get event
