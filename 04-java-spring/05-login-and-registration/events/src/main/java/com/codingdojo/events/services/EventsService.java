@@ -2,10 +2,13 @@ package com.codingdojo.events.services;
 
 import java.util.List;
 
+import org.aspectj.bridge.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.codingdojo.events.models.Events;
+import com.codingdojo.events.models.Messages;
+import com.codingdojo.events.models.User;
 import com.codingdojo.events.repositories.EventRepo;
 
 @Service
@@ -27,5 +30,8 @@ public class EventsService {
 	}
 	public void delete(Long id) {
 		erepo.deleteById(id);
+	}
+	public Messages comment(User user, Events event, String comment) {
+		return this.mrepo.save(new Message(user, event, comment));
 	}
 }
