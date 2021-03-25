@@ -34,8 +34,7 @@
 			</tr>
 		</tbody>
 	</table>
-		<div class="newcomment">
-		<h1>Comment</h1>
+	<div class="newcomment">
 	    <form:form method="POST" action="/home" modelAttribute="event">
 	    	<form:hidden value="${ user.id }" path="planner"/>
 	    	<p>

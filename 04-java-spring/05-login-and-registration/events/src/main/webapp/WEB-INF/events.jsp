@@ -117,14 +117,21 @@
 	</div>
 	<div class="new event">
 		<h1>Create an event</h1>
-	    <form:form method="POST" action="/{id}/comment" modelAttribute="message">
-	    	<form:hidden value="${ user.id }" path="commenter"/>
-	    	<form:hidden value="${ event.id }" path="eventComment"/>
-	        <p>
-	            <form:label path="comment">Write your comment</form:label>
-	            <form:input type="text" path="comment"/>
+	    <form:form method="POST" action="/home" modelAttribute="event">
+	    	<form:hidden value="${ user.id }" path="planner"/>
+	    	<p>
+	            <form:label path="name">Name:</form:label>
+	            <form:input type="name" path="name"/>
 	        </p>
-	        <input type="hidden" value="Create!"/>
+	        <p>
+	            <form:label path="eventState">State:</form:label>
+	            <form:input type="eventState" path="eventState"/>
+	        </p>
+	        <p>
+	            <form:label path="eventDate">Date:</form:label>
+	            <form:input type="eventDate" value="${dateFormat}" path="eventDate"/>
+	        </p>
+	        <input type="submit" value="Create!"/>
 	    </form:form>
 	</div>  
 </body>
