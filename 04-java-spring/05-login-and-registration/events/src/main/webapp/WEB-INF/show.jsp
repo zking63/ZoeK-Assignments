@@ -27,7 +27,7 @@
 			<tr>
 				<td>${ event.eventState }</td>
 				<td>${ event.getEventDateFormatted() }</td>
-				<td>${ event.planner.getFirstName() }</td>
+				<td>${ event.planner.firstName }</td>
 				<td>
 				<c:forEach items="${ event.attendees }" var="e">
 				${ e.firstName } 
@@ -39,7 +39,7 @@
 	<div class="comments">
 		<h2>Comments</h2>
 		<p><c:forEach items="${ event.eventComments }" var="c">
-			<p>${ c.commenter.getFirstName() }: ${ c.comment }</p>
+			<p>${ c.commenter.firstName }: ${ c.comment }</p>
 		</c:forEach></p>
 	</div>
 	<div class="newcomment">

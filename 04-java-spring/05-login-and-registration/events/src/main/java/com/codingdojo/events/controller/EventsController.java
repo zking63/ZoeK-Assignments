@@ -71,18 +71,13 @@ public class EventsController {
 	     // redirect to login page
 		 return "redirect:/";
 	 }
-	public Long userSessionId(HttpSession session) {
-		if(session.getAttribute("user_id") == null)
-			return null;
-		return (Long)session.getAttribute("user_id");
-	}
 	private String dateFormat() {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		return df.format(new Date());
 	}
 	 @RequestMapping("/home")
 	 public String EventsPage(@ModelAttribute("event") Events event, Model model, HttpSession session) {
-		 Long user_id = this.userSessionId(session);
+		 Long user_id = (Long)session.getAttribute("user_id");
 		 if (user_id == null) {
 			 return "redirect:/";
 		 }
@@ -95,22 +90,22 @@ public class EventsController {
 	 }
 	 @RequestMapping(value="/home", method=RequestMethod.POST)
 	 public String CreateEvent(@Valid @ModelAttribute("event") Events event, BindingResult result, Model model, HttpSession session) {
-		 Long user_id = this.userSessionId(session);
-		 User user = uservice.findUserbyId(user_id);
-		 model.addAttribute("user", user);
+		 Long user_id = (Long)session.getAttribute("user_id");
 		 if (result.hasErrors()) {
 			 return "redirect:/home";
 		 }
+		 User user = uservice.findUserbyId(user_id);
+		 model.addAttribute("user", user);
 		 eservice.createEvent(event);
 		 return "redirect:/home";
 	 }
 	 @RequestMapping("/{id}")
 	 public String show(@PathVariable("id") Long id, Model model, HttpSession session, @ModelAttribute("event")Events event) {
-		 Long user_id = this.userSessionId(session);
-		 User user = uservice.findUserbyId(user_id);
+		 Long user_id = (Long)session.getAttribute("user_id");
 		 if (user_id == null) {
 			 return "redirect:/";
 		 }
+		 User user = uservice.findUserbyId(user_id);
 		 model.addAttribute("event", eservice.findbyId(id));
 		 model.addAttribute("user", user);
 		 model.addAttribute("comments", eservice.findbyId(id).getEventComments());
@@ -123,12 +118,12 @@ public class EventsController {
 	}
 	@RequestMapping(value="/edit/{id}")
 	public String Edit(@PathVariable("id") Long id, HttpSession session, Model model) {
-		Long user_id = this.userSessionId(session);
-		User user = uservice.findUserbyId(user_id);
-		Events event = eservice.findbyId(id);
+		Long user_id = (Long)session.getAttribute("user_id");
 		if (user_id == null) {
 			return "redirect:/";
 		}
+		User user = uservice.findUserbyId(user_id);
+		Events event = eservice.findbyId(id);
 		if (event == null || user_id != event.getPlanner().getId()) {
 			return "redirect:/home";
 		}
@@ -141,18 +136,18 @@ public class EventsController {
 	}
 	 @RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
 	 public String Update(@Valid @ModelAttribute("event") Events event, BindingResult result, Model model, HttpSession session) {
-		 Long user_id = this.userSessionId(session);
-		 User user = uservice.findUserbyId(user_id);
-		 model.addAttribute("user", user);
+		 Long user_id = (Long)session.getAttribute("user_id");
 		 if (result.hasErrors()) {
 			 return "redirect:/home";
 		 }
+		 User user = uservice.findUserbyId(user_id);
+		 model.addAttribute("user", user);
 		 eservice.createEvent(event);
 		 return "redirect:/home";
 	 }
 	@PostMapping("/{id}/a/join")
 	public String attendees(@PathVariable("id") Long id, HttpSession session) {
-		Long user_id = this.userSessionId(session);
+		Long user_id = (Long)session.getAttribute("user_id");
 		//get event
 		Events event = eservice.findbyId(id);
 		//get attendees
@@ -166,7 +161,7 @@ public class EventsController {
 	}
 	@PostMapping("/{id}/a/cancel")
 	public String removeAttendees(@PathVariable("id") Long id, HttpSession session) {
-		Long user_id = this.userSessionId(session);
+		Long user_id = (Long)session.getAttribute("user_id");
 		//get event
 		Events event = eservice.findbyId(id);
 		//get attendees
@@ -180,15 +175,15 @@ public class EventsController {
 	}
 	@PostMapping("/{id}/comment")
 	public String addComment(@PathVariable("id")Long id, HttpSession session, @RequestParam("comment")String comment, Model model ) {
-		Long user_id = this.userSessionId(session);
-		User user = uservice.findUserbyId(user_id);
-		Events event = eservice.findbyId(id);
+		Long user_id = (Long)session.getAttribute("user_id");
 		if (user_id == null) {
 			return "redirect:/";
 		}
 		if (comment.equals("")) {
 			return "redirect:/{id}";
 		}
+		User user = uservice.findUserbyId(user_id);
+		Events event = eservice.findbyId(id);
 		eservice.makeComment(user, event, comment);
 		return "redirect:/{id}";
 	}
