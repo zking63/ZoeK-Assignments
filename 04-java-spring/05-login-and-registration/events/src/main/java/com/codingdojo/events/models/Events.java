@@ -20,6 +20,7 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -32,8 +33,9 @@ public class Events {
 	@NotEmpty
 	private String name;
 	@NotEmpty
+	@Size(max=2, message="State must be ONLY 2 characters.")
 	private String eventState;
-	@Future
+	@Future(message="Date must be in the future")
 	@DateTimeFormat(pattern ="yyyy-MM-dd")
 	private Date eventDate;
 	@Column(updatable=false)

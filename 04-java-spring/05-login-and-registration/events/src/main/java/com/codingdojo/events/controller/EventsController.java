@@ -92,10 +92,13 @@ public class EventsController {
 	 public String CreateEvent(@Valid @ModelAttribute("event") Events event, BindingResult result, Model model, HttpSession session) {
 		 Long user_id = (Long)session.getAttribute("user_id");
 		 if (result.hasErrors()) {
-			 return "redirect:/home";
+			 User user = uservice.findUserbyId(user_id);
+			 model.addAttribute("user", user);
+			 model.addAttribute("usersStates", this.eservice.allEventsWithState(user.getState()));
+			 model.addAttribute("otherStates", this.eservice.allEventsWithoutState(user.getState()));
+			 model.addAttribute("dateFormat", dateFormat());
+			 return "events.jsp";
 		 }
-		 User user = uservice.findUserbyId(user_id);
-		 model.addAttribute("user", user);
 		 eservice.createEvent(event);
 		 return "redirect:/home";
 	 }

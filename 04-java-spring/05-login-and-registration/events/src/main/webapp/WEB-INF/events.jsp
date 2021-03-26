@@ -122,14 +122,17 @@
 	    	<form:hidden value="${ user.id }" path="planner"/>
 	    	<p>
 	            <form:label path="name">Name:</form:label>
+	            <form:errors path="name"></form:errors>
 	            <form:input type="name" path="name"/>
 	        </p>
 	        <p>
 	            <form:label path="eventState">State:</form:label>
+	            <form:errors path="eventState"></form:errors>
 	            <form:input type="eventState" path="eventState"/>
 	        </p>
 	        <p>
 	            <form:label path="eventDate">Date:</form:label>
+	            <form:errors path="eventDate"></form:errors>
 	            <form:input type="eventDate" value="${dateFormat}" path="eventDate"/>
 	        </p>
 	        <input type="submit" value="Create!"/>
