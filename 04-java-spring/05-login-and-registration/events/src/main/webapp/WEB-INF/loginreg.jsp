@@ -7,18 +7,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" 
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+		crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/main.css" />
     <title>Login Page</title>
 </head>
 <body>
-	<div class="register">
-		<h1>Register!</h1>
-		
-		<p><form:errors path="user.*"/></p>
-	    
-	    <form:form method="POST" action="/" modelAttribute="user">
+	<div class="container">
+	   	    <form:form class="user-form" method="POST" action="/" modelAttribute="user">
+	   	    <h1>Register!</h1>
+			<p><form:errors path="user.*"/></p>
 	    	<p>
 	            <form:label path="firstName">First Name:</form:label>
-	            <form:input type="firstName" path="firstName"/>
+	            <form:input type="lastName" path="firstName"/>
 	        </p>
 	        <p>
 	            <form:label path="lastName">Last Name:</form:label>
@@ -46,11 +48,9 @@
 	        </p>
 	        <input type="submit" value="Register!"/>
 	    </form:form>
-	</div>
-	<div class="login">
-		<h1>Login</h1>
-	    <p><c:out value="${ error }" /></p>
-	    <form method="post" action="/login">
+	    <form class="user-form" method="post" action="/login">
+		    <h1>Login</h1>
+		    <p><c:out value="${ error }" /></p>
 	        <p>
 	            <label type="email" for="email">Email</label>
 	            <input type="text" id="email" name="email"/>

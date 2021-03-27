@@ -115,7 +115,7 @@ public class EventsController {
 		 return "show.jsp";
 	 }
 	@RequestMapping("/delete/{id}")
-	public String Delete(@PathVariable("id") Long id) {
+	public String Delete(@PathVariable("id") Long id, HttpSession session, Model model) {
 		this.eservice.delete(id);
 		return "redirect:/home";
 	}

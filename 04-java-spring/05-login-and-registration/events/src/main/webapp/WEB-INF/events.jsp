@@ -35,10 +35,7 @@
 						<c:choose>
 							<c:when test="${ e.planner.id == user.id }">
 								<a href="/edit/${ e.id }">Edit</a> |
-								<form action="/delete/${ e.id }" method="post">
-									<input type="hidden" value="delete" />
-									<button>Delete</button>
-								</form>
+								<a href="/delete/${ e.id }">Delete</a>
 							</c:when>
 							<c:otherwise>
 								<c:choose>
@@ -50,6 +47,7 @@
 										</form>	
 									</c:when>
 									<c:otherwise>
+									<a href="/${ e.id }/a/join">Join</a>
 										<form action="/${ e.id }/a/join" method="post">
 											<input type="hidden" value="join" />
 											<button>Join</button>
@@ -87,10 +85,7 @@
 						<c:choose>
 							<c:when test="${ s.planner.id == user.id }">
 								<a href="/edit/${ s.id }">Edit</a> |
-								<form action="/delete/${ s.id }" method="post">
-									<input type="hidden" value="delete" />
-									<button>Delete</button>
-								</form>
+								<a href="/delete/${ s.id }">Delete</a>
 							</c:when>
 							<c:otherwise>
 								<c:choose>
