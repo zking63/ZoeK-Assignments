@@ -1,14 +1,26 @@
+body{
+	background-color: grey;
+}
 .container {
 	margin-left: 236px;
 	margin-top: 10px;
 }
 .user-form {
 	display: inline-block;
-	width: 35%;
-	vertical-align: middle;
+	width: 45%;
+	vertical-align: top;
 	margin: 20px;
-	border: 1px solid black;
+	border: 1px solid white;
 	padding: 15px;
+	color: white;
+}
+.user-form a{
+	color: white;
+	font-style: bold;
+}
+.titles{
+	margin-left: 300px;
+	margin-top: 10px;
 }
 .event-details-side {
 	display: inline-block;
